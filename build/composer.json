@@ -1,0 +1,32 @@
+{
+  "name": "webflo/drupal-security",
+  "authors": [
+    {
+      "name": "Florian Weber",
+      "email": "florian.weber@ueberbit.de"
+    }
+  ],
+  "require": {
+    "drupal/parse-composer": "dev-master@dev",
+    "guzzlehttp/guzzle": "5.3.0",
+    "guzzlehttp/cache-subscriber": "0.1.*@dev",
+    "composer/composer": "@dev"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/drupal-composer/drupal-parse-composer.git"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/drupal",
+        "version": "7.34.0",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/drupal-7.34.zip",
+          "type": "zip"
+        }
+      }
+    }
+  ]
+}
