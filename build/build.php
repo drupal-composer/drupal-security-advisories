@@ -72,7 +72,7 @@ foreach ($results as $result) {
 }
 
 $composer = [
-  'name' => 'webflo/security-advisories',
+  'name' => 'webflo/drupal-security-advisories',
   'type' => 'metapackage',
   'license' => 'GPL-2.0+',
   'conflict' => []
@@ -85,9 +85,3 @@ foreach ($conflict as $package => $constraints) {
 
 ksort($composer['conflict']);
 file_put_contents(__DIR__ . '/../composer.json', json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-
-
-
-
-
-
