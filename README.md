@@ -4,13 +4,13 @@ This package ensures that your application doesn't have installed dependencies w
 
 ## Installation
 
-### Drupal 8
+### Drupal 8 ([composer.json](https://github.com/webflo/drupal-security-advisories/blob/8.0.x/composer.json))
 
 ```sh
 ~$ composer require webflo/drupal-security-advisories:dev-8.0.x
 ```
 
-### Drupal 7
+### Drupal 7 ([composer.json](https://github.com/webflo/drupal-security-advisories/blob/7.x/composer.json))
 
 ```sh
 ~$ composer require webflo/drupal-security-advisories:dev-7.x
