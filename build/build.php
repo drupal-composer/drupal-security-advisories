@@ -12,7 +12,7 @@ $client = new \GuzzleHttp\Client();
 $storage = new \GuzzleHttp\Subscriber\Cache\CacheStorage(new \Doctrine\Common\Cache\FilesystemCache(__DIR__ . '/cache'));
 CacheSubscriber::attach($client, ['storage' => $storage]);
 
-$data = json_decode($client->get('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=100')->getBody());
+$data = json_decode($client->get('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=100&field_release_build_type=static')->getBody());
 
 $projects = [];
 $conflict = [];
@@ -37,10 +37,6 @@ while (isset($data) && isset($data->list)) {
 }
 
 foreach ($results as $result) {
-  if ($result->field_release_build_type == 'dynamic') {
-    continue;
-  }
-
   $nid = $result->field_release_project->id;
   $version = new \Drupal\ParseComposer\Version($result->field_release_version);
 
@@ -88,7 +84,7 @@ foreach ($conflict as $package => $constraints) {
 }
 
 ksort($composer['conflict']);
-file_put_contents(__DIR__ . '/../composer.json', json_encode($composer, JSON_PRETTY_PRINT));
+file_put_contents(__DIR__ . '/../composer.json', json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
 
 
