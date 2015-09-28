@@ -1,0 +1,9 @@
+{
+    "name": "webflo/drupal-security-advisories",
+    "type": "metapackage",
+    "license": "GPL-2.0+",
+    "conflict": {
+        "drupal/dynamic_entity_reference": "<8.1.0-beta2",
+        "drupal/echo": "<8.1.7"
+    }
+}
