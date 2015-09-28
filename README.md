@@ -16,6 +16,6 @@ This package ensures that your application doesn't have installed dependencies w
 
 # Sources
 
-This packages gets information form Drupal.org APIs. The code is in ```build/build.php```.
+This packages gets information form Drupal.org APIs.
 
-Build command: ```php build/build.php```
+Build command: ```./build/build.sh```
