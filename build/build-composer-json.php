@@ -64,24 +64,32 @@ foreach ($results as $result) {
   try {
     $constraint = '<' . $version->getSemver();
     $versionParser->parseConstraints($constraint);
-    $conflict['drupal/' . $project->field_project_machine_name][] = '<' . $version->getSemver();
+    $conflict[$version->getCore()]['drupal/' . $project->field_project_machine_name][] = '<' . $version->getSemver();
   } catch (\Exception $e) {
     // @todo: log exception
     continue;
   }
 }
 
-$composer = [
-  'name' => 'webflo/drupal-security-advisories',
-  'type' => 'metapackage',
-  'license' => 'GPL-2.0+',
-  'conflict' => []
+$target = [
+  7 => 'build-7.x',
+  8 => 'build-8.0.x',
 ];
 
-foreach ($conflict as $package => $constraints) {
-  sort($constraints);
-  $composer['conflict'][$package] = implode(',', $constraints);
+foreach ($conflict as $core => $packages) {
+  $composer = [
+    'name' => 'webflo/drupal-security-advisories',
+    'type' => 'metapackage',
+    'license' => 'GPL-2.0+',
+    'conflict' => []
+  ];
+
+  foreach ($packages as $package => $constraints) {
+    sort($constraints);
+    $composer['conflict'][$package] = implode(',', $constraints);
+  }
+
+  ksort($composer['conflict']);
+  file_put_contents(__DIR__ . '/../'. $target[$core] .'/composer.json', json_encode($composer, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n");
 }
 
-ksort($composer['conflict']);
-file_put_contents(__DIR__ . '/../composer.json', json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
