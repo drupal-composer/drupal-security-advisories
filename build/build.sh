@@ -1,6 +1,8 @@
 #!/bin/sh -x
 
 REPO="https://github.com/webflo/drupal-security-advisories.git"
+cd build
+composer install
 rm -rf build-7.x build-8.0.x
 
 if [ ! -d "build-7.x" ]; then
@@ -25,7 +27,7 @@ if [ ! -d "build-8.0.x" ]; then
   fi
 fi
 
-php build/build-composer-json.php
+php build-composer-json.php
 
 cd build-7.x
 git add composer.json
