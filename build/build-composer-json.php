@@ -90,6 +90,6 @@ foreach ($conflict as $core => $packages) {
   }
 
   ksort($composer['conflict']);
-  file_put_contents(__DIR__ . '/../'. $target[$core] .'/composer.json', json_encode($composer, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n");
+  file_put_contents(__DIR__ . '/' . $target[$core] . '/composer.json', json_encode($composer, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n");
 }
 
