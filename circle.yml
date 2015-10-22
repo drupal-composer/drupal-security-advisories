@@ -1,0 +1,10 @@
+general:
+  branches:
+    only:
+      - master
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - ./build/build.sh
