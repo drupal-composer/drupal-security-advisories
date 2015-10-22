@@ -3,6 +3,10 @@ general:
     only:
       - master
 
+test:
+  override:
+    - true
+
 deployment:
   master:
     branch: master
