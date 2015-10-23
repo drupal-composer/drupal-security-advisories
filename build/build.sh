@@ -2,7 +2,7 @@
 
 REPO="https://github.com/webflo/drupal-security-advisories.git"
 cd build
-composer install
+composer install --no-interaction
 rm -rf build-7.x build-8.0.x
 
 if [ ! -d "build-7.x" ]; then
