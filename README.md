@@ -2,6 +2,8 @@
 
 This package ensures that your application doesn't have installed dependencies with known security vulnerabilities. Inspired by [Roave Security Advisories](https://github.com/Roave/SecurityAdvisories).
 
+[![Circle CI](https://circleci.com/gh/webflo/drupal-security-advisories/tree/master.svg?style=svg)](https://circleci.com/gh/webflo/drupal-security-advisories/tree/master)
+
 ## Installation
 
 ### Drupal 8 ([composer.json](https://github.com/webflo/drupal-security-advisories/blob/8.0.x/composer.json))
