@@ -58,6 +58,7 @@
         "drupal/commerce_moneris": "<7.1.4",
         "drupal/commerce_moneybookers": "<7.1.2",
         "drupal/commerce_ogone": "<7.1.5",
+        "drupal/commerce_pin": "<7.1.0-rc8",
         "drupal/commerce_postfinance": "<7.1.5",
         "drupal/commerce_reorder": "<7.1.1",
         "drupal/commerce_wedeal": "<7.1.3",
