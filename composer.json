@@ -98,6 +98,7 @@
         "drupal/elegant_theme": "<7.1.1",
         "drupal/elfinder": "<7.0.8",
         "drupal/email": "<7.1.2",
+        "drupal/encrypt": "<7.2.2",
         "drupal/entity": "<7.1.2,<7.1.3,<7.1.6",
         "drupal/entitybulkdelete": "<7.1.1",
         "drupal/entityform_block": "<7.1.3",
