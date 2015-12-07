@@ -78,7 +78,7 @@ $target = [
 
 foreach ($conflict as $core => $packages) {
   $composer = [
-    'name' => 'webflo/drupal-security-advisories',
+    'name' => 'drupal-composer/drupal-security-advisories',
     'type' => 'metapackage',
     'license' => 'GPL-2.0+',
     'conflict' => []
