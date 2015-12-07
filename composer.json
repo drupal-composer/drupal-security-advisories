@@ -1,5 +1,5 @@
 {
-    "name": "webflo/drupal-security-advisories",
+    "name": "drupal-composer/drupal-security-advisories",
     "type": "metapackage",
     "license": "GPL-2.0+",
     "conflict": {
@@ -200,6 +200,7 @@
         "drupal/monster_menus": "<7.1.13,<7.1.15,<7.1.24,<7.1.5",
         "drupal/multiblock": "<7.1.1",
         "drupal/multilink": "<7.2.7",
+        "drupal/mutual_credit": "<7.3.7",
         "drupal/newsflash": "<7.2.5",
         "drupal/nivo_slider": "<7.1.11",
         "drupal/node_embed": "<7.1.0",
@@ -384,6 +385,7 @@
         "drupal/yandex_metrics": "<7.1.5",
         "drupal/zen": "<7.3.2,<7.3.3,<7.5.4,<7.5.5",
         "drupal/zendesk_feedbacktab": "<7.1.1",
+        "drupal/zeroclipboard": "<7.2.1",
         "drupal/zeropoint": "<7.1.4,<7.1.9"
     }
 }
