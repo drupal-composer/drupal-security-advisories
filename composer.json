@@ -37,6 +37,7 @@
         "drupal/browserid": "<7.1.3",
         "drupal/bundle_copy": "<7.1.1",
         "drupal/business": "<7.1.8",
+        "drupal/campaignmonitor": "<7.1.1",
         "drupal/camtasia_relay": "<7.1.3",
         "drupal/cas": "<7.1.3",
         "drupal/cctags": "<7.1.10",
