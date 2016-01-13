@@ -267,7 +267,7 @@
         "drupal/quizzler": "<7.1.16",
         "drupal/rate": "<7.1.2",
         "drupal/realname_registration": "<7.2.0",
-        "drupal/redhen": "<7.1.8",
+        "drupal/redhen": "<7.1.11,<7.1.8",
         "drupal/regcode": "<7.1.2",
         "drupal/registration": "<7.1.5,<7.1.6",
         "drupal/relation": "<7.1.0",
