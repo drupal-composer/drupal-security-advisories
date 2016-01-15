@@ -30,26 +30,16 @@ This package is therefore only suited for installation in the root of your deplo
 
 # Handling Failures
 
-In the rare event that a security release does not affect your project, and upgrading to latest release is undesireable, you can suppress a build failure by renaming your project in composer.json. For example, assume that drupal/dynamic_entity_reference 8.1.0-beta2 just came out as a Security release. In order to keep using 8.1.0-beta1, you can specify the following in composer.json:
+In the rare event that a security release does not affect your project, and upgrading to latest release is undesireable, you can suppress a build failure by specifying a particular SHA project in composer.json. For example, assume that drupal/dynamic_entity_reference 8.1.0-beta2 just came out as a Security release. In order to keep using 8.1.0-beta1, you can specify the following in composer.json:
 
 ```
-        {
-            "type": "package",
-            "package": {
-                "name": "my-fork/dynamic_entity_reference",
-                "type": "drupal-module",
-                "version": "8.1.0-beta1",
-                "source": {
-                    "url": "http://git.drupal.org/project/dynamic_entity_reference",
-                    "type": "git",
-                    "reference": "8.x-1.x"
-                }
-            }
-        }
+"require": {
+  "drupal/dynamic_entity_reference": "dev-8.x-1.x#8713890"
+},
 
  ```
 
-Note that this approach opts your project out of any future security releases. Caveat emptor!
+Note: that this approach opts your package out of any future security releases. You can check for future security releases with `drush pm-updatestatus`.
 
 # Sources
 
