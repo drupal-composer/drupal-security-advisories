@@ -215,7 +215,6 @@
         "drupal/oa_core": "<7.2.22,<7.2.31,<7.2.66",
         "drupal/oa_discussion": "<7.2.24",
         "drupal/oa_sitemap": "<7.2.1",
-        "drupal/oa_subspaces": "<7.2.24",
         "drupal/oauth2_client": "<7.1.2",
         "drupal/og": "<7.1.2,<7.1.5,<7.2.3,<7.2.4,<7.2.7",
         "drupal/og_extras": "<7.1.2",
