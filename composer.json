@@ -74,7 +74,6 @@
         "drupal/contentanalysis": "<7.1.0-beta7",
         "drupal/context": "<7.3.0,<7.3.0-beta6,<7.3.6",
         "drupal/context_form_alteration": "<7.1.2",
-        "drupal/corporate": "<7.1.4",
         "drupal/counter": "<7.1.0-alpha5",
         "drupal/course": "<7.1.2,<7.1.4",
         "drupal/creative": "<7.1.2",
