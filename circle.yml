@@ -6,6 +6,10 @@ general:
   branches:
     only:
       - master
+      
+dependencies:
+  cache_directories:
+    - "tmp/drupal"
 
 checkout:
   post:
