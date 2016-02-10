@@ -313,6 +313,7 @@
         "drupal/simplenews": "<7.1.0-beta2,<7.1.0-rc1,<7.1.1",
         "drupal/site_banner": "<7.4.1",
         "drupal/skeletontheme": "<7.1.4",
+        "drupal/slickgrid": "<7.2.0",
         "drupal/slidebox": "<7.1.4",
         "drupal/smart_trim": "<7.1.5",
         "drupal/social_stats": "<7.1.5",
