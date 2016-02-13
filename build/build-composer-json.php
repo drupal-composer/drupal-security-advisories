@@ -6,6 +6,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 $results = array();
 
+$versionFactory = new \Drupal\ParseComposer\VersionFactory();
 $versionParser = new \Composer\Package\Version\VersionParser();
 
 $client = new \GuzzleHttp\Client();
@@ -38,10 +39,10 @@ while (isset($data) && isset($data->list)) {
 
 foreach ($results as $result) {
   $nid = $result->field_release_project->id;
-  $version = new \Drupal\ParseComposer\Version($result->field_release_version);
+  $core = (int) substr($result->field_release_version, 0, 1);
 
   // Skip D6 and older.
-  if ($version->getCore() < 7) {
+  if ($core < 7) {
     continue;
   }
 
@@ -55,13 +56,13 @@ foreach ($results as $result) {
     continue;
   }
 
-  $project = $projects[$nid];
-  if ($project->field_project_machine_name == 'drupal') {
-    // @todo: fix core version parser.
-    continue;
-  }
-
   try {
+    $project = $projects[$nid];
+    $is_core = ($project->field_project_machine_name == 'drupal') ? TRUE : FALSE;
+    $version = $versionFactory->create($result->field_release_version, $is_core);
+    if (!$version) {
+      throw new InvalidArgumentException('Invalid version number.');
+    }
     $constraint = '<' . $version->getSemver();
     $versionParser->parseConstraints($constraint);
     $conflict[$version->getCore()]['drupal/' . $project->field_project_machine_name][] = '<' . $version->getSemver();
@@ -85,11 +86,10 @@ foreach ($conflict as $core => $packages) {
   ];
 
   foreach ($packages as $package => $constraints) {
-    sort($constraints);
+    natsort($constraints);
     $composer['conflict'][$package] = implode(',', $constraints);
   }
 
   ksort($composer['conflict']);
   file_put_contents(__DIR__ . '/' . $target[$core] . '/composer.json', json_encode($composer, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n");
 }
-
