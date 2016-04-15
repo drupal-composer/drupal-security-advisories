@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh -xe
 
 REPO="https://github.com/drupal-composer/drupal-security-advisories.git"
 cd build
