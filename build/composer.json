@@ -10,7 +10,7 @@
     "drupal/parse-composer": "dev-master@dev",
     "guzzlehttp/guzzle": "5.3.0",
     "guzzlehttp/cache-subscriber": "0.1.*@dev",
-    "composer/composer": "@dev"
+    "composer/composer": "^1.0"
   },
   "repositories": [
     {

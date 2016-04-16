@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "eb2d37ba1b67585693e346effb5d1051",
-    "content-hash": "abe18133eb1ce57a674c5613a1a79fce",
+    "hash": "a07a5fdf7f8b541939f036b007114e03",
+    "content-hash": "7879465e9df5779ae1560e11eb1488d6",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -64,25 +64,23 @@
         },
         {
             "name": "composer/composer",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "76350676b53f295874447be4c37da2f52cd2c216"
+                "reference": "32df3aa8cdbdaa16df9491b5e672e81c87f94c78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/76350676b53f295874447be4c37da2f52cd2c216",
-                "reference": "76350676b53f295874447be4c37da2f52cd2c216",
+                "url": "https://api.github.com/repos/composer/composer/zipball/32df3aa8cdbdaa16df9491b5e672e81c87f94c78",
+                "reference": "32df3aa8cdbdaa16df9491b5e672e81c87f94c78",
                 "shasum": ""
             },
             "require": {
-                "composer/ca-bundle": "^1.0",
                 "composer/semver": "^1.0",
                 "composer/spdx-licenses": "^1.0",
                 "justinrainbow/json-schema": "^1.6",
                 "php": "^5.3.2 || ^7.0",
-                "psr/log": "^1.0",
                 "seld/cli-prompt": "^1.0",
                 "seld/jsonlint": "^1.4",
                 "seld/phar-utils": "^1.0",
@@ -106,7 +104,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -137,7 +135,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2016-04-15 15:37:47"
+            "time": "2016-04-05 12:27:26"
         },
         {
             "name": "composer/semver",
@@ -1306,8 +1304,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "drupal/parse-composer": 20,
-        "guzzlehttp/cache-subscriber": 20,
-        "composer/composer": 20
+        "guzzlehttp/cache-subscriber": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
