@@ -404,6 +404,7 @@
         "drupal/workbench_moderation": "<7.1.0-beta6",
         "drupal/xapian": "<7.1.2",
         "drupal/xc": "<7.1.2",
+        "drupal/xmlsitemap": "<7.2.3",
         "drupal/yandex_metrics": "<7.1.5",
         "drupal/zen": "<7.3.2,<7.3.3,<7.5.4,<7.5.5",
         "drupal/zendesk_feedbacktab": "<7.1.1",
