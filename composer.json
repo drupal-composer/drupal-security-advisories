@@ -246,6 +246,7 @@
         "drupal/pane": "<7.2.5",
         "drupal/panels": "<7.3.0",
         "drupal/panopoly_magic": "<7.1.17",
+        "drupal/panopoly_seo": "<7.1.0-beta7",
         "drupal/paragraphs": "<7.1.0-rc2",
         "drupal/password_policy": "<7.1.0-beta3,<7.1.3,<7.1.5,<7.1.6,<7.1.7,<7.1.9,<7.1.11,<7.2.0-alpha2",
         "drupal/passwordless": "<7.1.8",
