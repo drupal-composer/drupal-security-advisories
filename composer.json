@@ -180,6 +180,7 @@
         "drupal/labjs": "<7.1.7,<7.1.8",
         "drupal/lang_dropdown": "<7.1.4",
         "drupal/languageicons": "<7.1.0",
+        "drupal/ldap": "<7.1.0-beta13,<7.2.0-beta9",
         "drupal/leaflet": "<7.1.1",
         "drupal/linkit": "<7.2.3,<7.2.7,<7.3.3",
         "drupal/live_css": "<7.2.7",
