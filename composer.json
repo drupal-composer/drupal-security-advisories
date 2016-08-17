@@ -158,6 +158,7 @@
         "drupal/heartbeat": "<7.1.1",
         "drupal/hierarchical_select": "<7.3.0-alpha8",
         "drupal/homebox": "<7.2.0-beta4,<7.2.0-rc1",
+        "drupal/hosting": "<7.3.7",
         "drupal/hostip": "<7.1.2",
         "drupal/hsts": "<7.1.2",
         "drupal/htaccess": "<7.2.3",
