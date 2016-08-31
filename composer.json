@@ -134,7 +134,7 @@
         "drupal/filefield_sources": "<7.1.6,<7.1.9",
         "drupal/fillpdf": "<7.1.2",
         "drupal/finder": "<7.2.0-alpha8,<7.2.1",
-        "drupal/flag": "<7.3.1",
+        "drupal/flag": "<7.3.1,<7.3.8",
         "drupal/flippy": "<7.1.2",
         "drupal/fonecta_verify": "<7.1.6",
         "drupal/form_builder": "<7.1.6",
