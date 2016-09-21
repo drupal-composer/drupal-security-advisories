@@ -403,6 +403,7 @@
         "drupal/video_filter": "<7.3.0",
         "drupal/views": "<7.3.0-rc3,<7.3.6,<7.3.8,<7.3.10,<7.3.11,<7.3.14",
         "drupal/views_bulk_operations": "<7.3.3",
+        "drupal/views_data_export": "<7.3.0",
         "drupal/views_lang_switch": "<7.1.2",
         "drupal/views_megarow": "<7.1.6",
         "drupal/webform": "<7.3.10,<7.3.17,<7.3.20,<7.3.22,<7.3.23,<7.4.0-beta2,<7.4.4,<7.4.5",
