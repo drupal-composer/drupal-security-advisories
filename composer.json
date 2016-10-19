@@ -408,7 +408,7 @@
         "drupal/views_data_export": "<7.3.0",
         "drupal/views_lang_switch": "<7.1.2",
         "drupal/views_megarow": "<7.1.6",
-        "drupal/webform": "<7.3.10,<7.3.17,<7.3.20,<7.3.22,<7.3.23,<7.4.0-beta2,<7.4.4,<7.4.5",
+        "drupal/webform": "<7.3.10,<7.3.17,<7.3.20,<7.3.22,<7.3.23,<7.3.25,<7.4.0-beta2,<7.4.4,<7.4.5",
         "drupal/webform_civicrm": "<7.2.1,<7.2.2,<7.3.4,<7.4.13",
         "drupal/webform_component_roles": "<7.1.8",
         "drupal/webform_invitation": "<7.1.3,<7.2.4",
