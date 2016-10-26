@@ -381,7 +381,6 @@
         "drupal/tournament": "<7.1.2",
         "drupal/tracking_code": "<7.1.6",
         "drupal/tribune": "<7.3.12",
-        "drupal/trick_question": "<7.1.5",
         "drupal/tvi": "<7.1.0-alpha1",
         "drupal/twilio": "<7.1.9,<7.1.11",
         "drupal/twitter": "<7.5.9,<7.6.0",
