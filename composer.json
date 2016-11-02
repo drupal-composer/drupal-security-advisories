@@ -34,6 +34,7 @@
         "drupal/block_class": "<7.1.1,<7.2.2",
         "drupal/bluemasters": "<7.2.1",
         "drupal/boost": "<7.1.1",
+        "drupal/bootstrap": "<7.3.8",
         "drupal/botcha": "<7.1.6,<7.3.3",
         "drupal/boxes": "<7.1.1",
         "drupal/browserid": "<7.1.3",
