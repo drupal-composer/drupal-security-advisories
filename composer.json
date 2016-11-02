@@ -290,6 +290,7 @@
         "drupal/professional_theme": "<7.1.4,<7.2.04",
         "drupal/profile2": "<7.1.0-beta3",
         "drupal/profile2_privacy": "<7.1.5",
+        "drupal/profile2_regpath": "<7.1.13",
         "drupal/protected_pages": "<7.2.4",
         "drupal/protest": "<7.1.2",
         "drupal/provision": "<7.3.0-beta1,<7.3.0-beta2",
