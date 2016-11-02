@@ -424,7 +424,7 @@
         "drupal/webserver_auth": "<7.1.4",
         "drupal/wishlist": "<7.2.6,<7.2.7",
         "drupal/workbench_email": "<7.3.4",
-        "drupal/workbench_moderation": "<7.1.0-beta6",
+        "drupal/workbench_moderation": "<7.1.0-beta6,<7.3.0",
         "drupal/workbench_scheduler": "<7.1.9,<7.2.0-beta2",
         "drupal/xapian": "<7.1.2",
         "drupal/xc": "<7.1.2",
