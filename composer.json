@@ -94,7 +94,7 @@
         "drupal/ddblock": "<7.1.1",
         "drupal/deploy": "<7.2.0-beta2",
         "drupal/devel": "<7.1.1",
-        "drupal/dfp": "<7.1.2",
+        "drupal/dfp": "<7.1.2,<7.1.5",
         "drupal/document": "<7.1.21",
         "drupal/domain": "<7.2.4",
         "drupal/dropbox_client": "<7.4.0",
