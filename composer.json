@@ -3,6 +3,7 @@
     "type": "metapackage",
     "license": "GPL-2.0+",
     "conflict": {
+        "drupal/": "<7.1.0-alpha6",
         "drupal/acsf": "<7.1.14",
         "drupal/addressfield_tokens": "<7.1.4,<7.1.5",
         "drupal/admin_views": "<7.1.4,<7.1.5,<7.1.6",
@@ -215,7 +216,6 @@
         "drupal/memcache_storage": "<7.1.2",
         "drupal/menu_reference": "<7.1.1",
         "drupal/menu_views": "<7.2.4",
-        "drupal/message_private": "<7.1.0-alpha6",
         "drupal/meta_dev": "<7.1.0-rc6",
         "drupal/metatags_quick": "<7.2.3,<7.2.8",
         "drupal/migrate": "<7.2.8",
