@@ -222,7 +222,6 @@
         "drupal/migrate": "<7.2.8",
         "drupal/mimemail": "<7.1.0-beta2,<7.1.0-beta3",
         "drupal/misery": "<7.2.2",
-        "drupal/mmenu": "<7.2.1",
         "drupal/moip": "<7.1.4",
         "drupal/mollom": "<7.2.11",
         "drupal/monster_menus": "<7.1.5,<7.1.13,<7.1.15,<7.1.24",
