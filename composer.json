@@ -28,7 +28,7 @@
         "drupal/batch_jobs": "<7.1.2",
         "drupal/bean": "<7.1.5",
         "drupal/best_responsive": "<7.1.1",
-        "drupal/better_exposed_filters": "<7.3.0-beta3",
+        "drupal/better_exposed_filters": "<7.3.0-beta3,<7.3.4",
         "drupal/better_revisions": "<7.1.1",
         "drupal/biblio": "<7.1.0-rc6",
         "drupal/biblio_autocomplete": "<7.1.5",
