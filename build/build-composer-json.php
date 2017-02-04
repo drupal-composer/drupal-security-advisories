@@ -26,6 +26,28 @@ class UrlHelper {
 
 }
 
+class VersionParser {
+
+  public static function getSemVer($version, $isCore) {
+    $version = $isCore ? static::handleCore($version) : static::handleContrib($version);
+    return static::isValid($version) ? $version : FALSE;
+  }
+
+  public static function handleCore($version) {
+    return $version;
+  }
+
+  public static function handleContrib($version) {
+    list($core, $version) = explode('-', $version, 2);
+    return $version;
+  }
+
+  public static function isValid($version) {
+    return (strpos($version, 'unstable') === FALSE);
+  }
+
+}
+
 while (isset($data) && isset($data->list)) {
   $results = array_merge($results, $data->list);
 
@@ -59,13 +81,11 @@ foreach ($results as $result) {
   try {
     $project = $projects[$nid];
     $is_core = ($project->field_project_machine_name == 'drupal') ? TRUE : FALSE;
-    $version = $versionFactory->create($result->field_release_version, $is_core);
+    $version = VersionParser::getSemVer($result->field_release_version, $is_core);
     if (!$version) {
       throw new InvalidArgumentException('Invalid version number.');
     }
-    $constraint = '<' . $version->getSemver();
-    $versionParser->parseConstraints($constraint);
-    $conflict[$version->getCore()]['drupal/' . $project->field_project_machine_name][] = '<' . $version->getSemver();
+    $conflict[$core]['drupal/' . $project->field_project_machine_name][] = '<' . $version;
   } catch (\Exception $e) {
     // @todo: log exception
     continue;
@@ -74,7 +94,7 @@ foreach ($results as $result) {
 
 $target = [
   7 => 'build-7.x',
-  8 => 'build-8.0.x',
+  8 => 'build-8.x',
 ];
 
 foreach ($conflict as $core => $packages) {

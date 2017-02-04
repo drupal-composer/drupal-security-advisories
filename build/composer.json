@@ -7,26 +7,8 @@
     }
   ],
   "require": {
-    "drupal/parse-composer": "dev-master@dev",
     "guzzlehttp/guzzle": "5.3.0",
     "guzzlehttp/cache-subscriber": "0.1.*@dev",
     "composer/composer": "^1.0"
-  },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/drupal-composer/drupal-parse-composer.git"
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "drupal/drupal",
-        "version": "7.43.0",
-        "dist": {
-          "url": "https://ftp.drupal.org/files/projects/drupal-7.43.zip",
-          "type": "zip"
-        }
-      }
-    }
-  ]
+  }
 }
