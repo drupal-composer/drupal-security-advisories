@@ -1,12 +1,8 @@
-machine:
-  php:
-    version: 5.6.5
-
 general:
   branches:
     only:
       - master
-      
+
 dependencies:
   cache_directories:
     - "tmp/drupal"
