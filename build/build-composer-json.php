@@ -6,9 +6,6 @@ require __DIR__ . '/vendor/autoload.php';
 
 $results = array();
 
-$versionFactory = new \Drupal\ParseComposer\VersionFactory();
-$versionParser = new \Composer\Package\Version\VersionParser();
-
 $client = new \GuzzleHttp\Client();
 $storage = new \GuzzleHttp\Subscriber\Cache\CacheStorage(new \Doctrine\Common\Cache\FilesystemCache(__DIR__ . '/cache'));
 CacheSubscriber::attach($client, ['storage' => $storage]);
