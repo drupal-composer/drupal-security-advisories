@@ -4,6 +4,8 @@ use GuzzleHttp\Subscriber\Cache\CacheSubscriber;
 
 require __DIR__ . '/vendor/autoload.php';
 
+date_default_timezone_set('UTC');
+
 $results = array();
 
 $client = new \GuzzleHttp\Client();
