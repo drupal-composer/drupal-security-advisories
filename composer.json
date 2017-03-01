@@ -275,6 +275,7 @@
         "drupal/pane": "<2.5",
         "drupal/panelizer": "<3.3",
         "drupal/panels": "<3.0,<3.6",
+        "drupal/panopoly": "<1.43",
         "drupal/panopoly_magic": "<1.17",
         "drupal/panopoly_seo": "<1.0-beta7",
         "drupal/paragraphs": "<1.0-rc2,<1.0-rc5",
