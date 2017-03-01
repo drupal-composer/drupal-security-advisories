@@ -325,7 +325,7 @@
         "drupal/rest_json": "<1.5",
         "drupal/restful": "<1.3,<1.6,<1.8,<2.16",
         "drupal/restrict_node_page_view": "<1.2",
-        "drupal/restws": "<1.1,<1.2,<1.3,<1.4,<1.5,<1.7,<2.0,<2.0-alpha3,<2.0-alpha4,<2.0-alpha5,<2.1,<2.3,<2.6",
+        "drupal/restws": "<1.1,<1.2,<1.3,<1.4,<1.5,<1.7,<2.0,<2.0-alpha3,<2.0-alpha4,<2.0-alpha5,<2.1,<2.3,<2.6,<2.7",
         "drupal/revisioning": "<1.3,<1.6,<1.8",
         "drupal/role_delegation": "<1.1",
         "drupal/room_reservations": "<1.1",
