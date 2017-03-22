@@ -257,6 +257,7 @@
         "drupal/oa_subspaces": "<2.24",
         "drupal/oauth": "<3.3",
         "drupal/oauth2_client": "<1.2,<1.5",
+        "drupal/office_hours": "<1.6",
         "drupal/og": "<1.2,<1.5,<2.3,<2.4,<2.7,<2.9",
         "drupal/og_extras": "<1.2",
         "drupal/og_features": "<1.0-beta2,<2.0-beta4",
