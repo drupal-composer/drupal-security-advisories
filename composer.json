@@ -267,7 +267,7 @@
         "drupal/og_tabs": "<1.1",
         "drupal/om_maximenu": "<1.44",
         "drupal/opac": "<2.3",
-        "drupal/openatrium": "<2.22,<2.24,<2.25,<2.26,<2.42,<2.51,<2.53,<2.63,<2.65",
+        "drupal/openatrium": "<2.22,<2.24,<2.25,<2.26,<2.42,<2.51,<2.53,<2.63,<2.65,<2.615",
         "drupal/openevent": "<0.9",
         "drupal/opening_hours": "<1.6",
         "drupal/openlucius": "<1.0-beta7,<1.7",
