@@ -3,7 +3,6 @@
     "type": "metapackage",
     "license": "GPL-2.0+",
     "conflict": {
-        "drupal/": "<1.0-alpha6",
         "drupal/acsf": "<1.14",
         "drupal/addressfield_tokens": "<1.4,<1.5",
         "drupal/admin_views": "<1.4,<1.5,<1.6",
