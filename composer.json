@@ -218,7 +218,7 @@
         "drupal/mass_contact": "<1.0-alpha6,<1.1",
         "drupal/mayo": "<1.3,<1.4,<2.6",
         "drupal/me": "<1.2",
-        "drupal/media": "<1.0-beta4,<1.0-rc2,<1.0-rc3,<1.4,<2.0-beta12",
+        "drupal/media": "<1.0-beta4,<1.0-rc2,<1.0-rc3,<1.4,<2.0,<2.0-beta12",
         "drupal/mediafront": "<1.5,<1.6,<2.1",
         "drupal/memcache": "<1.0-beta2",
         "drupal/memcache_storage": "<1.2",
