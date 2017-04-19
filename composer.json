@@ -448,7 +448,7 @@
         "drupal/weblinks": "<1.0",
         "drupal/webserver_auth": "<1.4",
         "drupal/wetkit_omega": "<1.15",
-        "drupal/wishlist": "<2.7",
+        "drupal/wishlist": "<2.6,<2.7",
         "drupal/workbench_email": "<3.4",
         "drupal/workbench_moderation": "<1.0-beta6,<3.0",
         "drupal/workbench_scheduler": "<1.9,<2.0-beta2",
