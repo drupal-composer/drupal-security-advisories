@@ -323,6 +323,7 @@
         "drupal/regcode": "<1.2",
         "drupal/registration": "<1.5,<1.6",
         "drupal/relation": "<1.0",
+        "drupal/remember_me": "<1.1",
         "drupal/reply": "<1.0-alpha1",
         "drupal/require_login": "<1.1,<2.4",
         "drupal/responsive": "<1.6",
