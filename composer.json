@@ -6,6 +6,8 @@
         "drupal/acquia_contenthub": "<1.0,<1.4",
         "drupal/auto_login_url": "<1.2",
         "drupal/cshs": "<1.0-beta2",
+        "drupal/drd": "<3.2",
+        "drupal/drd_agent": "<3.1",
         "drupal/drupal": "<8.0.0-beta2,<8.0.4,<8.1.3,<8.1.7,<8.1.10,<8.2.3,<8.2.7,<8.2.8,<8.3.1",
         "drupal/dynamic_entity_reference": "<1.0-beta2",
         "drupal/echo": "<1.7",
