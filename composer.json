@@ -199,6 +199,7 @@
         "drupal/languageicons": "<1.0",
         "drupal/ldap": "<1.0-beta13,<2.0-beta9,<2.0-beta12",
         "drupal/leaflet": "<1.1",
+        "drupal/legal": "<1.7",
         "drupal/linkit": "<2.3,<2.7,<3.3",
         "drupal/live_css": "<2.7",
         "drupal/location": "<3.0-alpha1",
