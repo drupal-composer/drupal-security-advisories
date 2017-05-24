@@ -371,6 +371,7 @@
         "drupal/simplecorp": "<1.1",
         "drupal/simplenews": "<1.0-beta2,<1.0-rc1,<1.1",
         "drupal/site_banner": "<4.1",
+        "drupal/site_verify": "<1.2",
         "drupal/skeletontheme": "<1.4",
         "drupal/slickgrid": "<2.0",
         "drupal/slidebox": "<1.4",
