@@ -21,6 +21,7 @@
         "drupal/like_dislike": "<1.1",
         "drupal/linkit": "<4.3",
         "drupal/nodejs": "<1.0",
+        "drupal/oauth": "<2.1",
         "drupal/panels": "<3.0-beta5",
         "drupal/permissions_by_term": "<1.11",
         "drupal/piwik": "<1.1",
