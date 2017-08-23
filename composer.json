@@ -24,6 +24,7 @@
         "drupal/nodejs": "<1.0",
         "drupal/oauth": "<2.1",
         "drupal/panels": "<3.0-beta5",
+        "drupal/panopoly": "<2.0-alpha7",
         "drupal/permissions_by_term": "<1.11",
         "drupal/piwik": "<1.1",
         "drupal/prlp": "<1.3",
