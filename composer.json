@@ -250,6 +250,7 @@
         "drupal/multilink": "<2.7",
         "drupal/mutual_credit": "<3.7",
         "drupal/mvf": "<1.0-beta2",
+        "drupal/netforum_authentication": "<1.1",
         "drupal/newsflash": "<2.5",
         "drupal/nivo_slider": "<1.11",
         "drupal/node_embed": "<1.0,<1.2",
