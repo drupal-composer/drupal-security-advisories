@@ -21,6 +21,7 @@
         "drupal/auto_login_url": "<1.7",
         "drupal/autocomplete_deluxe": "<1.0-beta5,<1.0-beta6,<1.0-beta7,<2.2",
         "drupal/autocomplete_widgets": "<1.0-rc1",
+        "drupal/autologout": "<4.5",
         "drupal/autosave": "<2.0",
         "drupal/avatar_uploader": "<1.0-beta6",
         "drupal/aws_amazon": "<1.3",
