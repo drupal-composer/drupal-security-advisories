@@ -355,7 +355,6 @@
         "drupal/rpx": "<2.2",
         "drupal/rules": "<2.3",
         "drupal/rules_link": "<1.1",
-        "drupal/safeword": "<1.10",
         "drupal/salescloud": "<1.5",
         "drupal/save_draft": "<1.4",
         "drupal/scald": "<1.1,<1.5",
