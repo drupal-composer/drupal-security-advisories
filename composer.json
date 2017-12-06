@@ -8,6 +8,7 @@
         "drupal/auto_login_url": "<1.2",
         "drupal/bootstrap": "<3.5",
         "drupal/config_perms": "<1.1",
+        "drupal/config_update": "<1.5",
         "drupal/cshs": "<1.0-beta2",
         "drupal/drd": "<3.2",
         "drupal/drd_agent": "<3.1",
