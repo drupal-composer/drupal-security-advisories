@@ -493,6 +493,7 @@
         "drupal/yandex_metrics": "<1.5,<3.1",
         "drupal/zen": "<3.2,<3.3,<5.4,<5.5",
         "drupal/zendesk_feedbacktab": "<1.1",
+        "drupal/zeroclipboard": "<2.1",
         "drupal/zeropoint": "<1.4,<1.9"
     }
 }
