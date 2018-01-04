@@ -159,7 +159,7 @@
         "drupal/finder": "<2.0-alpha8,<2.1",
         "drupal/flag": "<3.1,<3.8",
         "drupal/flag_clear": "<1.10,<2.0",
-        "drupal/flag_lists": "<1.3,<3.1",
+        "drupal/flag_lists": "<3.1",
         "drupal/flippy": "<1.2",
         "drupal/fonecta_verify": "<1.6",
         "drupal/form_builder": "<1.6",
