@@ -23,6 +23,7 @@
         "drupal/ldap": "<3.0-alpha1,<3.0-beta2",
         "drupal/like_dislike": "<1.1",
         "drupal/linkit": "<4.3",
+        "drupal/node_view_permissions": "<1.1",
         "drupal/nodejs": "<1.0",
         "drupal/oauth": "<2.1",
         "drupal/panels": "<3.0-beta5",
@@ -33,6 +34,7 @@
         "drupal/require_login": "<1.8",
         "drupal/search_api": "<1.0-alpha14",
         "drupal/smtp": "<1.0-beta3",
+        "drupal/stacks": "<1.1",
         "drupal/swiftmailer": "<1.0-beta1",
         "drupal/xmlsitemap": "<1.0-alpha2"
     }
