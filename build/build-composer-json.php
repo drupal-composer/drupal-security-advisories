@@ -100,7 +100,7 @@ foreach ($conflict as $core => $packages) {
   $composer = [
     'name' => 'drupal-composer/drupal-security-advisories',
     'type' => 'metapackage',
-    'license' => 'GPL-2.0+',
+    'license' => 'GPL-2.0-or-later',
     'conflict' => []
   ];
 
