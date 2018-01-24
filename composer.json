@@ -1,7 +1,7 @@
 {
     "name": "drupal-composer/drupal-security-advisories",
     "type": "metapackage",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "conflict": {
         "drupal/acsf": "<1.14",
         "drupal/addressfield_tokens": "<1.4,<1.5",
