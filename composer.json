@@ -157,7 +157,7 @@
         "drupal/field_group": "<1.5",
         "drupal/fieldable_panels_panes": "<1.7,<1.8,<1.10",
         "drupal/fieldblock": "<1.4",
-        "drupal/filefield_sources": "<1.6,<1.9",
+        "drupal/filefield_sources": "<1.6,<1.9,<1.11",
         "drupal/fillpdf": "<1.2",
         "drupal/finder": "<2.0-alpha8,<2.1",
         "drupal/flag": "<3.1,<3.8",
