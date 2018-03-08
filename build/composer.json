@@ -7,8 +7,9 @@
     }
   ],
   "require": {
-    "guzzlehttp/guzzle": "5.3.0",
-    "guzzlehttp/cache-subscriber": "0.1.*@dev",
-    "composer/composer": "^1.0"
+    "composer/composer": "^1.0",
+    "kevinrob/guzzle-cache-middleware": "^3.2",
+    "guzzlehttp/guzzle": "^6.3",
+    "doctrine/cache": "^1.7"
   }
 }

@@ -1,6 +1,11 @@
 <?php
 
-use GuzzleHttp\Subscriber\Cache\CacheSubscriber;
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use Kevinrob\GuzzleCache\CacheMiddleware;
+use Doctrine\Common\Cache\FilesystemCache;
+use Kevinrob\GuzzleCache\Strategy\PrivateCacheStrategy;
+use Kevinrob\GuzzleCache\Storage\DoctrineCacheStorage;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -8,9 +13,18 @@ date_default_timezone_set('UTC');
 
 $results = array();
 
-$client = new \GuzzleHttp\Client();
-$storage = new \GuzzleHttp\Subscriber\Cache\CacheStorage(new \Doctrine\Common\Cache\FilesystemCache(__DIR__ . '/cache'));
-CacheSubscriber::attach($client, ['storage' => $storage]);
+$stack = HandlerStack::create();
+$stack->push(
+  new CacheMiddleware(
+    new PrivateCacheStrategy(
+      new DoctrineCacheStorage(
+        new FilesystemCache(__DIR__ . '/cache')
+      )
+    )
+  ),
+  'cache'
+);
+$client = new Client(['handler' => $stack]);
 
 $data = json_decode($client->get('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=100&field_release_build_type=static')->getBody());
 
