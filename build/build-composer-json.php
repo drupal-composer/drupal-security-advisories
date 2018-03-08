@@ -123,6 +123,12 @@ foreach ($conflict as $core => $packages) {
     $composer['conflict'][$package] = implode(',', $constraints);
   }
 
+  // drupal/core is a subtree split for drupal/drupal and has no own SAs.
+  // @see https://github.com/drush-ops/drush/issues/3448
+  if (isset($composer['conflict']['drupal/drupal']) && !isset($composer['conflict']['drupal/core'])) {
+    $composer['conflict']['drupal/core'] = $composer['conflict']['drupal/drupal'];
+  }
+
   ksort($composer['conflict']);
   file_put_contents(__DIR__ . '/' . $target[$core] . '/composer.json', json_encode($composer, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n");
 }
