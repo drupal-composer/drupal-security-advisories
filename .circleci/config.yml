@@ -12,4 +12,4 @@ jobs:
       - run: git config --global user.name "Florian Weber (via CircleCI)"
       - run: git config --global user.email "florian@webflo.org"
       - add_ssh_keys
-      - run ./build/build.sh
+      - run: ./build/build.sh
