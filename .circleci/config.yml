@@ -1,0 +1,12 @@
+version: 2
+
+jobs:
+  build:
+    branches:
+      only:
+        - 7.x
+    docker:
+      - image: circleci/php:7.1
+    steps:
+      - checkout
+      - run: composer validate
