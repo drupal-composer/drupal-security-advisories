@@ -113,6 +113,7 @@ $target = [
 foreach ($conflict as $core => $packages) {
   $composer = [
     'name' => 'drupal-composer/drupal-security-advisories',
+    'description' => 'Prevents installation of composer packages with known security vulnerabilities',
     'type' => 'metapackage',
     'license' => 'GPL-2.0-or-later',
     'conflict' => []
