@@ -42,6 +42,7 @@
         "drupal/search_api": "<1.0-alpha14",
         "drupal/smtp": "<1.0-beta3",
         "drupal/stacks": "<1.1",
+        "drupal/svg_formatter": "<1.06",
         "drupal/swiftmailer": "<1.0-beta1",
         "drupal/xmlsitemap": "<1.0-alpha2"
     }
