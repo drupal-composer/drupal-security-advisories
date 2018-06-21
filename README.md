@@ -39,7 +39,7 @@ In the rare event that a security release does not affect your project, and upgr
 
  ```
 
-Note: that this approach opts your package out of any future security releases. You can check for future security releases with `drush pm-updatestatus`.
+Note: that this approach opts your package out of any future security releases. You can check for future security releases with `drush pm:security` (drush9) or `drush pm-updatestatus` (drush8).
 
 # Sources
 
