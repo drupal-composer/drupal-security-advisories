@@ -475,6 +475,7 @@
         "drupal/user_import": "<2.3",
         "drupal/user_readonly": "<1.4",
         "drupal/user_relationships": "<1.0-alpha5",
+        "drupal/uuid": "<1.1",
         "drupal/values": "<1.2",
         "drupal/varnish": "<1.0-beta2",
         "drupal/versioncontrol": "<1.0-rc3",
