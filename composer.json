@@ -177,7 +177,7 @@
         "drupal/forward": "<1.1,<1.3",
         "drupal/fp": "<1.2,<7.2",
         "drupal/fpa": "<2.3",
-        "drupal/freelinking": "<3.5",
+        "drupal/freelinking": "<3.3,<3.5",
         "drupal/fresh": "<1.4",
         "drupal/ga_login": "<1.3,<1.4",
         "drupal/galleryformatter": "<1.2",
