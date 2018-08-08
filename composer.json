@@ -336,6 +336,7 @@
         "drupal/perfecto": "<1.2",
         "drupal/persona": "<1.11",
         "drupal/petitions": "<1.2",
+        "drupal/phpconfig": "<1.1",
         "drupal/piwik": "<2.7,<2.9",
         "drupal/plupload": "<1.0-beta2,<1.1",
         "drupal/poll_chart": "<1.2",
