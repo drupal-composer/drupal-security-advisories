@@ -6,7 +6,7 @@
     "conflict": {
         "drupal/acsf": "<1.14",
         "drupal/addressfield_tokens": "<1.4,<1.5",
-        "drupal/admin_views": "<1.5,<1.6",
+        "drupal/admin_views": "<1.4,<1.5,<1.6",
         "drupal/aes": "<1.5",
         "drupal/agov": "<1.0-beta4,<1.0-beta5",
         "drupal/ajax_facets": "<3.7",
@@ -166,6 +166,7 @@
         "drupal/fieldable_panels_panes": "<1.7,<1.8,<1.10",
         "drupal/fieldblock": "<1.4",
         "drupal/file_resup": "<1.5",
+        "drupal/filefield_paths": "<1.1",
         "drupal/filefield_sources": "<1.6,<1.9,<1.11",
         "drupal/fillpdf": "<1.2",
         "drupal/finder": "<2.0-alpha8,<2.1",
