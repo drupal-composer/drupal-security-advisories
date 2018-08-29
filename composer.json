@@ -40,6 +40,7 @@
         "drupal/bible": "<1.7",
         "drupal/biblio": "<1.0-rc6",
         "drupal/biblio_autocomplete": "<1.5",
+        "drupal/bing_autosuggest_api": "<1.1",
         "drupal/block_class": "<1.1,<2.2",
         "drupal/bluemasters": "<2.1",
         "drupal/boost": "<1.1",
