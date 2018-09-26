@@ -80,6 +80,7 @@
         "drupal/commerce_extra_panes": "<1.1",
         "drupal/commerce_invoices": "<1.1",
         "drupal/commerce_kickstart": "<1.5,<2.4,<2.5,<2.6",
+        "drupal/commerce_klarna_checkout": "<1.5",
         "drupal/commerce_moneris": "<1.4",
         "drupal/commerce_moneybookers": "<1.2",
         "drupal/commerce_ogone": "<1.5",
@@ -291,6 +292,7 @@
         "drupal/nodejs": "<1.11",
         "drupal/nodereference_url": "<1.10",
         "drupal/notify": "<1.1",
+        "drupal/nucleus": "<1.6",
         "drupal/oa_comment": "<2.14",
         "drupal/oa_core": "<2.22,<2.31,<2.66,<2.84",
         "drupal/oa_discussion": "<2.24",
@@ -455,6 +457,7 @@
         "drupal/term_reference_tree": "<1.11",
         "drupal/tfa": "<2.0-beta3",
         "drupal/tfa_basic": "<1.1",
+        "drupal/tft": "<1.1",
         "drupal/time_spent": "<2.3",
         "drupal/time_tracker": "<1.4",
         "drupal/timezone_detect": "<1.2",
@@ -523,6 +526,7 @@
         "drupal/zen": "<3.2,<3.3,<5.4,<5.5",
         "drupal/zendesk_feedbacktab": "<1.1",
         "drupal/zeroclipboard": "<2.1",
-        "drupal/zeropoint": "<1.4,<1.9"
+        "drupal/zeropoint": "<1.4,<1.9",
+        "drupal/zircon": "<1.2"
     }
 }
