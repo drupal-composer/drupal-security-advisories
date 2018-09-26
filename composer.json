@@ -50,6 +50,7 @@
         "drupal/stacks": "<1.1",
         "drupal/svg_formatter": "<1.06",
         "drupal/swiftmailer": "<1.0-beta1",
+        "drupal/tft": "<1.0-beta2",
         "drupal/xmlsitemap": "<1.0-alpha2"
     }
 }
