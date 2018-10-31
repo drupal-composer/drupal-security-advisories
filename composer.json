@@ -417,6 +417,7 @@
         "drupal/services_sso_client": "<1.6",
         "drupal/services_views": "<1.2",
         "drupal/session_cache": "<1.5",
+        "drupal/session_limit": "<2.3",
         "drupal/sharethis": "<2.3,<2.5",
         "drupal/shib_auth": "<4.1,<4.2,<4.4",
         "drupal/shipwire": "<1.03",
