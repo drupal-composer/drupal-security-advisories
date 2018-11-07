@@ -234,7 +234,7 @@
         "drupal/ldap": "<1.0-beta13,<2.0-beta9,<2.0-beta12,<2.2",
         "drupal/leaflet": "<1.1",
         "drupal/legal": "<1.7",
-        "drupal/lightbox2": "<1.0-beta2,<2.11",
+        "drupal/lightbox2": "<1.0-beta2",
         "drupal/linkit": "<2.3,<2.7,<3.3",
         "drupal/litejazz": "<2.3",
         "drupal/live_css": "<2.7",
