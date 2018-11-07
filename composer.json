@@ -347,6 +347,7 @@
         "drupal/phpconfig": "<1.1",
         "drupal/piwik": "<2.7,<2.9",
         "drupal/plupload": "<1.0-beta2,<1.1",
+        "drupal/poll_chart": "<1.2",
         "drupal/postal_code": "<1.9",
         "drupal/prepopulate": "<2.1",
         "drupal/prh_search": "<1.1",
