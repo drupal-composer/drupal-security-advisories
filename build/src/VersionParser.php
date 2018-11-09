@@ -31,8 +31,8 @@ class VersionParser {
 
   public static function handleContrib($version) {
     list($core, $version) = explode('-', $version, 2);
-    list($major, $minor) = explode('.', $version);
-    return ">=$major.$minor,<$version";
+    list($major) = explode('.', $version);
+    return ">=$major,<$version";
   }
 
   public static function isValid($version) {
