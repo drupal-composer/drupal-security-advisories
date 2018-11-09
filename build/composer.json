@@ -10,6 +10,12 @@
     "composer/composer": "^1.0",
     "kevinrob/guzzle-cache-middleware": "^3.2",
     "guzzlehttp/guzzle": "^6.3",
-    "doctrine/cache": "^1.7"
+    "doctrine/cache": "^1.7",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "DrupalComposer\\DrupalSecurityAdvisories\\": "src"
+    }
   }
 }
