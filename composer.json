@@ -44,7 +44,7 @@
         "drupal/block_class": "<1.1,<2.2",
         "drupal/bluemasters": "<2.1",
         "drupal/boost": "<1.1",
-        "drupal/bootstrap": "<3.8",
+        "drupal/bootstrap": "<3.8,<3.22",
         "drupal/bootstrap_carousel": "<1.2",
         "drupal/botcha": "<1.6,<3.3",
         "drupal/boxes": "<1.1",
