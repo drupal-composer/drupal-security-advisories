@@ -450,6 +450,7 @@
         "drupal/storage_api_stream_wrapper": "<1.1",
         "drupal/support": "<1.0-beta3",
         "drupal/survey_builder": "<1.2",
+        "drupal/swiftmailer": "<1.7",
         "drupal/tablefield": "<2.3",
         "drupal/tadaa": "<1.4",
         "drupal/tapestry": "<2.2",
