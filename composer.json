@@ -148,6 +148,7 @@
         "drupal/entityqueue_taxonomy": "<1.1",
         "drupal/entityreference": "<1.0-beta3,<1.1,<1.5",
         "drupal/epsacrop": "<2.4",
+        "drupal/esign": "<1.10",
         "drupal/eu_cookie_compliance": "<1.12,<1.24",
         "drupal/fac": "<1.1",
         "drupal/facebook_pull": "<3.1",
