@@ -6,7 +6,7 @@
     "conflict": {
         "drupal/acsf": "<1.14",
         "drupal/addressfield_tokens": "<1.4,<1.5",
-        "drupal/admin_views": "<1.5,<1.6",
+        "drupal/admin_views": "<1.4,<1.5,<1.6",
         "drupal/aes": "<1.5",
         "drupal/agov": "<1.0-beta4,<1.0-beta5",
         "drupal/ajax_facets": "<3.7",
