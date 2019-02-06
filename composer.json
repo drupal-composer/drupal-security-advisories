@@ -4,6 +4,7 @@
     "type": "metapackage",
     "license": "GPL-2.0-or-later",
     "conflict": {
+        "drupal/acquia_connector": "<3.4",
         "drupal/acsf": "<1.14",
         "drupal/addressfield_tokens": "<1.4,<1.5",
         "drupal/admin_views": "<1.4,<1.5,<1.6",
@@ -365,6 +366,7 @@
         "drupal/protected_pages": "<2.4",
         "drupal/protest": "<1.2",
         "drupal/provision": "<3.0-beta1,<3.0-beta2,<3.170",
+        "drupal/pubdlcnt": "<1.3",
         "drupal/push_notifications": "<1.1",
         "drupal/qscience_profile": "<1.7,<1.8",
         "drupal/quickedit": "<1.2",
