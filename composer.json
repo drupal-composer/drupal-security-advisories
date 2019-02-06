@@ -9,6 +9,7 @@
         "drupal/auto_login_url": "<1.2",
         "drupal/bootstrap": "<3.5,<3.14",
         "drupal/ckeditor_uploadimage": "<1.5",
+        "drupal/cleantalk": "<2.7",
         "drupal/commerce": "<2.9",
         "drupal/config_perms": "<1.1",
         "drupal/config_update": "<1.5",
