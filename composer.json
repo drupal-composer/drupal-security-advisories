@@ -292,7 +292,7 @@
         "drupal/node_field": "<2.45",
         "drupal/node_notify": "<1.2",
         "drupal/node_view_permissions": "<1.2,<1.5",
-        "drupal/nodeaccess": "<1.4",
+        "drupal/nodeaccess": "<1.4,<1.6",
         "drupal/nodeaccess_userreference": "<3.10",
         "drupal/nodeaccesskeys": "<1.1,<1.2",
         "drupal/nodejs": "<1.11",
