@@ -78,6 +78,7 @@
         "drupal/commerce_authnet_simdpm": "<1.1,<1.4",
         "drupal/commerce_commonwealth": "<1.5",
         "drupal/commerce_custom_order_status": "<1.1",
+        "drupal/commerce_extra_panes": "<1.1",
         "drupal/commerce_invoices": "<1.1",
         "drupal/commerce_kickstart": "<1.5,<2.4,<2.5,<2.6",
         "drupal/commerce_klarna_checkout": "<1.5",
