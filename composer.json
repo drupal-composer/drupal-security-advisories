@@ -6,6 +6,7 @@
     "conflict": {
         "drupal/acquia_connector": "<1.16",
         "drupal/acquia_contenthub": "<1.0,<1.4",
+        "drupal/addtoany": "<1.11",
         "drupal/alinks": "<1.1",
         "drupal/auto_login_url": "<1.2",
         "drupal/bootstrap": "<3.5,<3.14",
