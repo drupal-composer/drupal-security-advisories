@@ -466,7 +466,7 @@
         "drupal/support": "<1.0-beta3",
         "drupal/survey_builder": "<1.2",
         "drupal/swiftmailer": "<1.7",
-        "drupal/tablefield": "<2.3",
+        "drupal/tablefield": "<2.3,<2.7,<3.4",
         "drupal/tadaa": "<1.4",
         "drupal/tapestry": "<2.2",
         "drupal/taxonews": "<1.1",
