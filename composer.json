@@ -134,7 +134,7 @@
         "drupal/drupalchat": "<2.6,<2.7",
         "drupal/ds": "<1.3,<1.7,<1.8,<1.10,<2.1,<2.4,<2.8,<2.15",
         "drupal/dvg": "<1.9",
-        "drupal/easy_breadcrumb": "<2.10",
+        "drupal/easy_breadcrumb": "<2.10,<2.17",
         "drupal/easy_social": "<2.11",
         "drupal/echo": "<1.7",
         "drupal/ed_classified": "<3.1",
