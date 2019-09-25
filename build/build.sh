@@ -5,8 +5,8 @@ cd build
 composer install --no-interaction --no-progress
 rm -rf build-7.x build-8.x
 
-git clone --branch 7.x $REPO build-7.x
-git clone --branch 8.x $REPO build-8.x
+git clone --branch 7.x-v2 $REPO build-7.x
+git clone --branch 8.x-v2 $REPO build-8.x
 
 php build-composer-json.php
 
