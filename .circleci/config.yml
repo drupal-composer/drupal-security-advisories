@@ -1,16 +1,4 @@
-version: 2.1
-
-commands:
-  disable-php-memory-limit:
-    steps:
-      - run:
-          name: Disable PHP memory limit
-          command: echo 'memory_limit=-1' | sudo tee -a /usr/local/etc/php/php.ini
-  disable-xdebug-php-extension:
-    steps:
-      - run:
-          name: Disable Xdebug PHP extension
-          command: sudo rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+version: 2
 
 jobs:
   build:
@@ -22,8 +10,12 @@ jobs:
       - image: circleci/php:7.2
     steps:
       - checkout
-      - disable-xdebug-php-extension
-      - disable-php-memory-limit
+      - run:
+          name: Disable PHP memory limit
+          command: echo 'memory_limit=-1' | sudo tee -a /usr/local/etc/php/php.ini
+      - run:
+          name: Disable Xdebug PHP extension
+          command: sudo rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
       - run: git config --global user.name "Florian Weber (via CircleCI)"
       - run: git config --global user.email "florian@webflo.org"
       - add_ssh_keys
