@@ -72,6 +72,7 @@
         "drupal/salesforce": "<3.1",
         "drupal/search_api": "<1.0-alpha14",
         "drupal/session_limit": "<1.0-beta3",
+        "drupal/simple_amp": "<1.16",
         "drupal/smtp": "<1.0-beta3",
         "drupal/stacks": "<1.1",
         "drupal/super_login": "<1.3",
