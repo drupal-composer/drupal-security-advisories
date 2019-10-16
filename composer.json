@@ -9,6 +9,7 @@
         "drupal/addtoany": "<1.11",
         "drupal/alinks": "<1.1",
         "drupal/auto_login_url": "<1.2",
+        "drupal/bat": "<1.2",
         "drupal/bootstrap": "<3.5,<3.14",
         "drupal/ckeditor_uploadimage": "<1.5",
         "drupal/cleantalk": "<2.7",
