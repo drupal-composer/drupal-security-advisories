@@ -228,6 +228,7 @@
         "drupal/image_title": "<1.1",
         "drupal/imagecache_actions": "<1.10",
         "drupal/imagefield_info": "<1.2",
+        "drupal/img_annotator": "<1.2",
         "drupal/inline_entity_form": "<1.6",
         "drupal/instagram_block": "<1.4",
         "drupal/invoice": "<1.3",
