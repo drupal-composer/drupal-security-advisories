@@ -42,6 +42,7 @@
         "drupal/hotjar": "<1.0",
         "drupal/htmlmail": "<3.0-alpha2",
         "drupal/imagecache_external": "<1.1",
+        "drupal/img_annotator": "<1.2",
         "drupal/instagram_block": "<2.0-alpha2",
         "drupal/jsonapi": "<1.9,<1.10,<1.14,<1.16,<1.24,<1.25,<2.0-rc4,<2.3",
         "drupal/ldap": "<3.0-alpha1,<3.0-beta2",
