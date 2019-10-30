@@ -39,7 +39,7 @@
         "drupal/forms_steps": "<1.2",
         "drupal/fraction": "<1.2",
         "drupal/google_analytics": "<2.1",
-        "drupal/gutenberg": "<1.8",
+        "drupal/gutenberg": "<1.7,<1.8",
         "drupal/hotjar": "<1.0",
         "drupal/htmlmail": "<3.0-alpha2",
         "drupal/imagecache_external": "<1.1",
