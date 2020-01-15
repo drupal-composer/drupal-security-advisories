@@ -391,6 +391,7 @@
         "drupal/quiz": "<4.0-beta2",
         "drupal/quizzler": "<1.16",
         "drupal/rabbit_hole": "<2.25",
+        "drupal/radix": "<3.8",
         "drupal/rate": "<1.2",
         "drupal/realname_registration": "<2.0",
         "drupal/redhen": "<1.8,<1.11",
