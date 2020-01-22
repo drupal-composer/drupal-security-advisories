@@ -79,6 +79,7 @@
         "drupal/smart_trim": "1.0|1.0-beta1|1.1|>=1,<1.2",
         "drupal/smtp": "1.0-alpha0|1.0-alpha1|1.0-alpha2|1.0-beta1|1.0-beta2|>=1,<1.0-beta3",
         "drupal/social": "6.0|6.0-alpha1|6.0-beta1|6.1|6.2|6.3|6.4|7.0|>=6,<6.5|>=7,<7.1",
+        "drupal/spamspan": "1.0|1.0-alpha1|1.0-rc1|>=1,<1.1",
         "drupal/stacks": "1.0|1.0-beta1|>=1,<1.1",
         "drupal/students": "1.0|1.1",
         "drupal/super_login": "1.0|1.0-beta1|1.0-beta2|1.0-beta3|1.1|1.2|>=1,<1.3",
