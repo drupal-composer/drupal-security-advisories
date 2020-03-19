@@ -1,10 +1,17 @@
-version: 2
+version: 2.1
+
+
+workflows:
+  main:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
 
 jobs:
   build:
-    branches:
-      only:
-        - master
     docker:
       - image: circleci/php:7.1
     steps:
