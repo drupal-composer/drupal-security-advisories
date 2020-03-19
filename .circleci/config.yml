@@ -4,8 +4,8 @@ jobs:
   build:
     branches:
       only:
-        - master
-        - build-v2
+        - "master"
+        - "build-v2"
     docker:
       - image: circleci/php:7.2
     steps:
