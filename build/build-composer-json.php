@@ -56,6 +56,7 @@ function fetchAllData($url, Client $client) {
 
 // Security releases
 $results = fetchAllData('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=100&field_release_build_type=static', $client);
+$securityVersions = [];
 foreach ($results as $result) {
   $nid = $result->field_release_project->id;
   $core = (int) substr($result->field_release_version, 0, 1);
@@ -73,15 +74,30 @@ foreach ($results as $result) {
   }
 
   try {
-    $is_core = ($project->field_project_machine_name == 'drupal') ? TRUE : FALSE;
-    $constraint = VersionParser::generateRangeConstraint($result->field_release_version, $is_core);
-    if (!$constraint) {
-      throw new InvalidArgumentException('Invalid version number.');
+    $is_core = ($project->field_project_machine_name == 'drupal');
+    $versionGroup = $result->field_release_version_major . (($is_core && $core == 8) ? '.' . $result->field_release_version_minor : '');
+
+    if (empty($securityVersions[$core]['drupal/' . $project->field_project_machine_name][$versionGroup])
+      ||
+      version_compare($securityVersions[$core]['drupal/' . $project->field_project_machine_name][$versionGroup], $result->field_release_version, '<')
+    ) {
+      $securityVersions[$core]['drupal/' . $project->field_project_machine_name][$versionGroup] = $result->field_release_version;
     }
-    $conflict[$core]['drupal/' . $project->field_project_machine_name][] = $constraint;
   } catch (\Exception $e) {
     // @todo: log exception
     continue;
+  }
+}
+
+foreach ($securityVersions as $core => $packages) {
+  foreach ($packages as $package => $majorVersions) {
+    foreach ($majorVersions as $versionGroup => $version) {
+      $constraint = VersionParser::generateRangeConstraint($version, ($package == 'drupal/drupal'));
+      if (!$constraint) {
+        throw new InvalidArgumentException('Invalid version number.');
+      }
+      $conflict[$core][$package][] = $constraint;
+    }
   }
 }
 
@@ -104,7 +120,23 @@ foreach ($results as $result) {
   }
 
   try {
-    $is_core = ($project->field_project_machine_name == 'drupal') ? TRUE : FALSE;
+    $is_core = ($project->field_project_machine_name == 'drupal');
+    $versionGroup = $result->field_release_version_major . (($is_core && $core == 8) ? '.' . $result->field_release_version_minor : '');
+
+    // Cleanup core versions prior to SemVer (e.g. 8.0-alpha1).
+    if ($is_core && $core == 8 && empty($result->field_release_version_patch)) {
+      continue;
+    }
+
+    // Filter any individual releases older than a security release.
+    if (
+      !empty($securityVersions[$core]['drupal/' . $project->field_project_machine_name][$versionGroup])
+      &&
+      version_compare($securityVersions[$core]['drupal/' . $project->field_project_machine_name][$versionGroup], $result->field_release_version, '>')
+    ) {
+      continue;
+    }
+
     $constraint = VersionParser::generateExplicitConstraint($result->field_release_version, $is_core);
     if (!$constraint) {
       throw new InvalidArgumentException('Invalid version number.');
@@ -131,7 +163,11 @@ foreach ($conflict as $core => $packages) {
   ];
 
   foreach ($packages as $package => $constraints) {
-    natsort($constraints);
+    usort($constraints, function ($a,  $b) {
+      preg_match('/<?(\d+(?:.\d+)+?(?:-.+)?)$/', $a,  $aMatches);
+      preg_match('/<?(\d+(?:.\d+)+?(?:-.+)?)$/', $b,  $bMatches);
+      return version_compare($aMatches[1], $bMatches[1]);
+    });
     $composer['conflict'][$package] = implode('|', $constraints);
   }
 
