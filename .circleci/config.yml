@@ -18,4 +18,7 @@ jobs:
       - run: git config --global user.name "Florian Weber (via CircleCI)"
       - run: git config --global user.email "florian@webflo.org"
       - add_ssh_keys
-      - run: ./build/build.sh
+      - run: 
+          command: ./build/build.sh
+          no_output_timeout: 30m
+
