@@ -4,14 +4,14 @@ namespace DrupalComposer\DrupalSecurityAdvisories;
 
 class VersionParser {
 
-  public static function generateRangeConstraint($version, $isCore) {
+  public static function generateRangeConstraint($version, $isCore, $result) {
     if (!static::isValid($version)) {
       return FALSE;
     }
-    return $isCore ? static::handleCore($version) : static::handleContrib($version);
+    return $isCore ? static::handleCore($version) : static::handleContrib($version, $result);
   }
 
-  public static function generateExplicitConstraint($version, $isCore) {
+  public static function generateExplicitConstraint($version, $isCore, $result) {
     if (!static::isValid($version)) {
       return FALSE;
     }
@@ -19,7 +19,9 @@ class VersionParser {
       return $version;
     }
     else {
-      list($core, $version) = explode('-', $version, 2);
+      // $result->taxonomy_vocabulary_6 is usually a term like 8.x (https://www.drupal.org/taxonomy/term/7234).
+      // Its absence indicates a semver release (or a core release).
+      list($core, $version) = empty($result->taxonomy_vocabulary_6) ? [NULL, $version] : explode('-', $version, 2);
     }
     return $version;
   }
@@ -29,8 +31,10 @@ class VersionParser {
     return ">=$major.$minor,<$version";
   }
 
-  public static function handleContrib($version) {
-    list($core, $version) = explode('-', $version, 2);
+  public static function handleContrib($version, $result) {
+    // $result->taxonomy_vocabulary_6 is usually a term like 8.x (https://www.drupal.org/taxonomy/term/7234).
+    // Its absence indicates a semver release (or a core release).
+    list($core, $version) = empty($result->taxonomy_vocabulary_6) ? [NULL, $version] : explode('-', $version, 2);
     list($major) = explode('.', $version);
     return ">=$major,<$version";
   }

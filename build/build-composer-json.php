@@ -58,10 +58,9 @@ function fetchAllData($url, Client $client) {
 $results = fetchAllData('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=100&field_release_build_type=static', $client);
 foreach ($results as $result) {
   $nid = $result->field_release_project->id;
-  $core = (int) substr($result->field_release_version, 0, 1);
+  $core_compat = getCoreCompat($result);
 
-  // Skip D6 and older.
-  if ($core < 7) {
+  if ($core_compat < 7) {
     continue;
   }
 
@@ -73,12 +72,12 @@ foreach ($results as $result) {
   }
 
   try {
-    $is_core = ($project->field_project_machine_name == 'drupal') ? TRUE : FALSE;
-    $constraint = VersionParser::generateRangeConstraint($result->field_release_version, $is_core);
+    $is_core = $project->field_project_machine_name == 'drupal';
+    $constraint = VersionParser::generateRangeConstraint($result->field_release_version, $is_core, $result);
     if (!$constraint) {
       throw new InvalidArgumentException('Invalid version number.');
     }
-    $conflict[$core]['drupal/' . $project->field_project_machine_name][] = $constraint;
+    $conflict[$core_compat]['drupal/' . $project->field_project_machine_name][] = $constraint;
   } catch (\Exception $e) {
     // @todo: log exception
     continue;
@@ -89,10 +88,10 @@ foreach ($results as $result) {
 $results = fetchAllData('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=188131&field_release_build_type=static', $client);
 foreach ($results as $result) {
   $nid = $result->field_release_project->id;
-  $core = (int) substr($result->field_release_version, 0, 1);
+  $core_compat = getCoreCompat($result);
 
   // Skip D6 and older.
-  if ($core < 7) {
+  if ($core_compat < 7) {
     continue;
   }
 
@@ -104,12 +103,12 @@ foreach ($results as $result) {
   }
 
   try {
-    $is_core = ($project->field_project_machine_name == 'drupal') ? TRUE : FALSE;
-    $constraint = VersionParser::generateExplicitConstraint($result->field_release_version, $is_core);
+    $is_core = $project->field_project_machine_name == 'drupal';
+    $constraint = VersionParser::generateExplicitConstraint($result->field_release_version, $is_core, $result);
     if (!$constraint) {
       throw new InvalidArgumentException('Invalid version number.');
     }
-    $conflict[$core]['drupal/' . $project->field_project_machine_name][] = $constraint;
+    $conflict[$core_compat]['drupal/' . $project->field_project_machine_name][] = $constraint;
   } catch (\Exception $e) {
     // @todo: log exception
     continue;
@@ -121,7 +120,7 @@ $target = [
   8 => 'build-8.x',
 ];
 
-foreach ($conflict as $core => $packages) {
+foreach ($conflict as $core_compat => $packages) {
   $composer = [
     'name' => 'drupal-composer/drupal-security-advisories',
     'description' => 'Prevents installation of composer packages with known security vulnerabilities',
@@ -142,5 +141,28 @@ foreach ($conflict as $core => $packages) {
   }
 
   ksort($composer['conflict']);
-  file_put_contents(__DIR__ . '/' . $target[$core] . '/composer.json', json_encode($composer, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n");
+  file_put_contents(__DIR__ . '/' . $target[$core_compat] . '/composer.json', json_encode($composer, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n");
+}
+
+/**
+ * @param $result
+ *
+ * @return int
+ */
+function getCoreCompat($result) {
+  switch ($result->field_release_category) {
+    case 'obsolete':
+      $core_compat = -1;
+      break;
+    case 'legacy':
+      $core_compat = 7;
+      break;
+    case 'current':
+      // Drupal's module API goes no higher than 8. Drupal 9 core advisories are published in this project's 8.x branch.
+      $core_compat = 8;
+      break;
+    default:
+      throw new InvalidArgumentException('Unrecognized field_release_category.');
+  }
+  return $core_compat;
 }
