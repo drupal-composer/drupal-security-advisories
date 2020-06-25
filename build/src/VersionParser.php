@@ -35,8 +35,8 @@ class VersionParser {
     // $result->taxonomy_vocabulary_6 is usually a term like 8.x (https://www.drupal.org/taxonomy/term/7234).
     // Its absence indicates a semver release (or a core release).
     list($core, $version) = empty($result->taxonomy_vocabulary_6) ? [NULL, $version] : explode('-', $version, 2);
-    list($major) = explode('.', $version);
-    return ">=$major,<$version";
+    list($major, $minor) = explode('.', $version, 2);
+    return ">=$major.$minor,<$version";
   }
 
   public static function isValid($version) {
