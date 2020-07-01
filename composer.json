@@ -400,7 +400,7 @@
         "drupal/registration": "<1.5,<1.6,<1.7,<2.0-beta3",
         "drupal/relation": "<1.0,<1.1",
         "drupal/remember_me": "<1.1",
-        "drupal/renderkit": "<1.6",
+        "drupal/renderkit": "<1.6,<1.14",
         "drupal/reply": "<1.0-alpha1",
         "drupal/require_login": "<1.1,<2.4",
         "drupal/responsive": "<1.6",
