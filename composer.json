@@ -66,6 +66,7 @@
         "drupal/nodeaccess": "<1.0-beta3",
         "drupal/nodejs": "<1.0",
         "drupal/oauth": "<2.1",
+        "drupal/oauth_server_sso": "<1.1",
         "drupal/open_readspeaker": "<1.5",
         "drupal/opigno_forum": "<1.2",
         "drupal/opigno_learning_path": "<1.4",
