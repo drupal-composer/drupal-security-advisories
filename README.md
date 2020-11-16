@@ -6,16 +6,16 @@ This package ensures that your application doesn't have installed dependencies w
 
 ## Installation
 
-### Drupal 8+ ([composer.json](https://github.com/drupal-composer/drupal-security-advisories/blob/8.x/composer.json))
+### Drupal 8+ ([composer.json](https://github.com/drupal-composer/drupal-security-advisories/blob/8.x-v2/composer.json))
 
 ```sh
-~$ composer require drupal-composer/drupal-security-advisories:8.x-dev
+~$ composer require drupal-composer/drupal-security-advisories:dev-8.x-v2
 ```
 
-### Drupal 7 ([composer.json](https://github.com/drupal-composer/drupal-security-advisories/blob/7.x/composer.json))
+### Drupal 7 ([composer.json](https://github.com/drupal-composer/drupal-security-advisories/blob/7.x-v2/composer.json))
 
 ```sh
-~$ composer require drupal-composer/drupal-security-advisories:7.x-dev
+~$ composer require drupal-composer/drupal-security-advisories:dev-7.x-v2
 ```
 
 # Usage
