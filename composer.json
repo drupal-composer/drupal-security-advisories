@@ -92,7 +92,7 @@
         "drupal/simple_amp": "<1.16",
         "drupal/smart_trim": "<1.2",
         "drupal/smtp": "<1.0-beta3",
-        "drupal/social": "<6.5,<7.1",
+        "drupal/social": "<6.5,<7.1,<8.10,<9.8",
         "drupal/spamspan": "<1.1",
         "drupal/stacks": "<1.1",
         "drupal/super_login": "<1.3",
