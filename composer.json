@@ -545,7 +545,7 @@
         "drupal/webform_civicrm": "<2.1,<2.2,<3.4,<4.13",
         "drupal/webform_component_roles": "<1.8",
         "drupal/webform_invitation": "<1.3,<2.4",
-        "drupal/webform_multifile": "<1.3,<1.4,<1.6",
+        "drupal/webform_multifile": "<1.4,<1.6",
         "drupal/webform_patched": "<3.20",
         "drupal/webform_prepopulate_block": "<3.1",
         "drupal/webform_template": "<1.3",
