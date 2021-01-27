@@ -315,6 +315,7 @@
         "drupal/nodejs": "<1.11",
         "drupal/nodequeue": "<2.2",
         "drupal/nodereference_url": "<1.10",
+        "drupal/noggin": "<1.2",
         "drupal/notify": "<1.1",
         "drupal/nucleus": "<1.6",
         "drupal/nvp": "<1.1",
