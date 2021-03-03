@@ -332,7 +332,7 @@
         "drupal/og_extras": "<1.2",
         "drupal/og_features": "<1.0-beta2,<2.0-beta4",
         "drupal/og_manager_change": "<2.1",
-        "drupal/og_menu": "<2.3,<2.4,<3.0",
+        "drupal/og_menu": "<2.2,<2.3,<2.4,<3.0",
         "drupal/og_tabs": "<1.1",
         "drupal/om_maximenu": "<1.44",
         "drupal/opac": "<2.3",
