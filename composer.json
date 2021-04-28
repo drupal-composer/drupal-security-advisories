@@ -421,6 +421,7 @@
         "drupal/safeword": "<1.10",
         "drupal/sagepay_payment": "<1.5",
         "drupal/salescloud": "<1.5",
+        "drupal/samlauth": "<1.1",
         "drupal/save_draft": "<1.4",
         "drupal/scald": "<1.1,<1.5",
         "drupal/scald_file": "<1.3",
