@@ -88,6 +88,7 @@
         "drupal/require_login": "<1.8",
         "drupal/salesforce": "<3.1",
         "drupal/saml_sp": "<3.7",
+        "drupal/samlauth": "<3.1",
         "drupal/search_api": "<1.0-alpha14",
         "drupal/session_limit": "<1.0-beta3",
         "drupal/simple_amp": "<1.16",
