@@ -28,6 +28,9 @@ class VersionParser {
 
   public static function handleCore($version) {
     list($major, $minor) = explode('.', $version);
+    if ($major == '7') {
+      return ">=$major,<$version";
+    }
     return ">=$major.$minor,<$version";
   }
 
