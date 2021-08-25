@@ -7,6 +7,7 @@
         "drupal/acquia_connector": "<1.16",
         "drupal/acquia_contenthub": "<1.0,<1.4",
         "drupal/addtoany": "<1.11",
+        "drupal/admin_toolbar": "<2.5",
         "drupal/alinks": "<1.1",
         "drupal/apigee_edge": "<1.2,<1.12",
         "drupal/auto_login_url": "<1.2",
@@ -113,7 +114,7 @@
         "drupal/tmgmt": "<1.7",
         "drupal/video": "<1.4",
         "drupal/views_bulk_operations": "<2.6,<3.4",
-        "drupal/webform": "<5.11,<5.12,<5.25",
+        "drupal/webform": "<5.11,<5.12,<5.25,<5.28",
         "drupal/workbench_moderation": "<1.4",
         "drupal/xmlsitemap": "<1.0-alpha2"
     }
