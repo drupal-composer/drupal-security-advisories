@@ -256,6 +256,7 @@
         "drupal/live_css": "<2.7",
         "drupal/location": "<3.0-alpha1",
         "drupal/locationmap": "<2.4",
+        "drupal/loft_data_grids": "<2.4",
         "drupal/login_disable": "<1.2",
         "drupal/login_one_time": "<2.10",
         "drupal/login_security": "<1.3",
