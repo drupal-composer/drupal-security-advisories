@@ -120,7 +120,7 @@
         "drupal/tmgmt": "<1.7",
         "drupal/video": "<1.4",
         "drupal/views_bulk_operations": "<2.6,<3.4",
-        "drupal/webform": "<5.11,<5.12,<5.25,<5.28",
+        "drupal/webform": "<5.11,<5.12,<5.25,<5.28,<5.30,<5.31",
         "drupal/workbench_moderation": "<1.4",
         "drupal/xmlsitemap": "<1.0-alpha2"
     }
