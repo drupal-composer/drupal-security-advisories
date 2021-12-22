@@ -68,6 +68,7 @@
         "drupal/linky_revision_ui": "2.127.0|2.127.1|>=2.127,<2.127.1|>=2.127,<2.127.2",
         "drupal/loft_data_grids": "1.1|1.3|>=1,<1.4",
         "drupal/login_alert": "1.1|1.2|>=1,<1.3",
+        "drupal/mail_login": "2.0|2.1|2.2|2.3|2.4|>=2,<2.5",
         "drupal/mapbox_ui": ">=1,<1.2",
         "drupal/menu_export": "1.0|1.0-beta1|>=1,<1.2",
         "drupal/menu_item_extras": "2.0|2.0-alpha1|2.0-alpha2|2.0-beta1|2.0-beta2|2.0-beta3|2.0-rc1|2.0-rc2|2.1|2.2|2.3|2.4|>=2,<2.5",
