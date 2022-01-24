@@ -2,20 +2,20 @@
 
 This package ensures that your application doesn't have installed dependencies with known security vulnerabilities. Inspired by [Roave Security Advisories](https://github.com/Roave/SecurityAdvisories).
 
-[![Circle CI](https://circleci.com/gh/drupal-composer/drupal-security-advisories/tree/master.svg?style=svg)](https://circleci.com/gh/drupal-composer/drupal-security-advisories/tree/master)
+[![Circle CI](https://circleci.com/gh/drupal-composer/drupal-security-advisories/tree/main.svg?style=svg)](https://circleci.com/gh/drupal-composer/drupal-security-advisories/tree/main)
 
 ## Installation
 
-### Drupal 8+ ([composer.json](https://github.com/drupal-composer/drupal-security-advisories/blob/8.x-v2/composer.json))
+### Drupal 9+ ([composer.json](https://github.com/drupal-composer/drupal-security-advisories/blob/9.x/composer.json))
 
 ```sh
-~$ composer require drupal-composer/drupal-security-advisories:dev-8.x-v2
+~$ composer require drupal-composer/drupal-security-advisories:dev-9.x
 ```
 
-### Drupal 7 ([composer.json](https://github.com/drupal-composer/drupal-security-advisories/blob/7.x-v2/composer.json))
+### Drupal 7 ([composer.json](https://github.com/drupal-composer/drupal-security-advisories/blob/7.x/composer.json))
 
 ```sh
-~$ composer require drupal-composer/drupal-security-advisories:dev-7.x-v2
+~$ composer require drupal-composer/drupal-security-advisories:dev-7.x
 ```
 
 # Usage
