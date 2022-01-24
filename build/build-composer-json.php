@@ -57,6 +57,11 @@ function fetchAllData($url, Client $client) {
 // Security releases
 $results = fetchAllData('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=100&field_release_build_type=static', $client);
 foreach ($results as $result) {
+  // Skip releases with incomplete data.
+  if (!property_exists($result, 'field_release_project')) {
+    continue;
+  }
+
   $nid = $result->field_release_project->id;
   $core_compat = getCoreCompat($result);
 
@@ -87,6 +92,11 @@ foreach ($results as $result) {
 // Insecure releases
 $results = fetchAllData('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=188131&field_release_build_type=static', $client);
 foreach ($results as $result) {
+  // Skip releases with incomplete data.
+  if (!property_exists($result, 'field_release_project')) {
+    continue;
+  }
+
   $nid = $result->field_release_project->id;
   $core_compat = getCoreCompat($result);
 
@@ -117,7 +127,7 @@ foreach ($results as $result) {
 
 $target = [
   7 => 'build-7.x',
-  8 => 'build-8.x',
+  8 => 'build-9.x',
 ];
 
 foreach ($conflict as $core_compat => $packages) {
