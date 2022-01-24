@@ -7,13 +7,12 @@ workflows:
           filters:
             branches:
               only:
-                - master
-                - build-v2
+                - main
 
 jobs:
   build:
     docker:
-      - image: circleci/php:7.2
+      - image: circleci/php:8.0
     steps:
       - checkout
       - run:
