@@ -4,9 +4,10 @@ jobs:
   build:
     branches:
       only:
-        - 8.x
+        - 9.x
+        - 8.x-v2
     docker:
-      - image: circleci/php:7.1
+      - image: circleci/php:9.0
     steps:
       - checkout
       - run: composer validate
