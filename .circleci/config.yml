@@ -7,7 +7,7 @@ jobs:
         - 9.x
         - 8.x-v2
     docker:
-      - image: circleci/php:9.0
+      - image: circleci/php:8.0
     steps:
       - checkout
       - run: composer validate
