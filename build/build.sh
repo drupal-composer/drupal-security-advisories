@@ -16,6 +16,9 @@ then
   git add composer.json
   git commit -m "Update composer.json"
   git push origin HEAD
+
+  # Publish 7.x as 7.x-v2
+  git push origin HEAD:7.x-v2
 fi
 cd ..
 
