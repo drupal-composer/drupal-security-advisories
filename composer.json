@@ -97,7 +97,7 @@
         "drupal/phpconfig": "1.0|>=1,<1.1",
         "drupal/piwik": "1.0|1.0-rc1|>=1,<1.1",
         "drupal/preview_link": "1.0|>=1,<1.1",
-        "drupal/private_taxonomy": "2.0|2.1|2.2|2.3|2.4",
+        "drupal/private_taxonomy": "2.0|2.1|2.2|2.3|2.4|>=2,<2.5",
         "drupal/prlp": "1.0|1.0-alpha1|1.1|1.2|1.3|1.4|>=1,<1.3|>=1,<1.5",
         "drupal/profile": "1.0|1.0-alpha1|1.0-alpha2|1.0-alpha3|1.0-alpha4|1.0-alpha5|1.0-alpha6|1.0-alpha7|1.0-beta1|1.0-rc1|1.0-rc2|1.0-rc3|1.0-rc4|1.0-rc5|1.0-rc6|>=1,<1.1",
         "drupal/protected_pages": "1.0|>=1,<1.1",
