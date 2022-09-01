@@ -9,13 +9,13 @@ This package ensures that your application doesn't have installed dependencies w
 ### Drupal 9+ ([composer.json](https://github.com/drupal-composer/drupal-security-advisories/blob/9.x/composer.json))
 
 ```sh
-~$ composer require drupal-composer/drupal-security-advisories:dev-9.x
+~$ composer require drupal-composer/drupal-security-advisories:9.x-dev
 ```
 
 ### Drupal 7 ([composer.json](https://github.com/drupal-composer/drupal-security-advisories/blob/7.x/composer.json))
 
 ```sh
-~$ composer require drupal-composer/drupal-security-advisories:dev-7.x
+~$ composer require drupal-composer/drupal-security-advisories:9.x-dev
 ```
 
 # Usage
