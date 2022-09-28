@@ -444,6 +444,7 @@
         "drupal/rpx": "2.0|2.1|2.1-beta1|2.1-beta2|2.1-beta3|2.1-rc1|>=2,<2.2",
         "drupal/rules": "2.0|2.0-alpha1|2.0-alpha2|2.0-alpha3|2.0-alpha4|2.0-alpha5|2.0-beta1|2.0-beta2|2.0-beta3|2.0-rc1|2.0-rc2|2.1|2.2|>=2,<2.3",
         "drupal/rules_link": "1.0|1.0-beta1|1.0-beta2|1.0-beta3|1.0-beta4|1.0-beta5|>=1,<1.1",
+        "drupal/s3fs": "2.0|2.1|2.2|2.3|2.4|2.5|2.6|2.7|2.8|2.9|2.10|2.11|2.12|2.13",
         "drupal/safeword": "1.0|1.1|1.2|1.3|1.4|1.5|1.6|1.7|1.8|1.9|>=1,<1.10",
         "drupal/sagepay_payment": "1.0|1.0-beta4|1.1|1.2|1.3|1.4|>=1,<1.5",
         "drupal/salescloud": "1.0|1.1|1.2|1.3|1.4|>=1,<1.5",
