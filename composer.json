@@ -1,0 +1,25 @@
+{
+  "name": "drupal-composer/drupal-security-advisories-generator",
+  "description": "Prevents installation of composer packages with known security vulnerabilities",
+  "license": "GPL-2.0-or-later",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  },
+  "require": {
+    "symfony/console": "^6.2",
+    "symfony/cache": "^6.2",
+    "symfony/http-client": "^6.2",
+    "composer/composer": "^2.4",
+    "symfony/validator": "^6.2",
+    "symfony/stopwatch": "^6.2",
+    "symfony/http-kernel": "^6.2"
+  },
+  "require-dev": {
+    "symfony/test-pack": "^1.0"
+  }
+}
