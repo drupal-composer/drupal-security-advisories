@@ -9,8 +9,8 @@ final class Project extends ReleaseBase
 
     private function __construct(
         private readonly string $status,
-        private readonly array $supportedBranches,
         private readonly array $releases,
+        private readonly array $supportedBranches,
     ) {
     }
 
@@ -42,8 +42,8 @@ final class Project extends ReleaseBase
 
         return new self(
             $data['project_status'],
-            $data['supported_branches'],
             $data['releases'],
+            $data['supported_branches'] ?? [],
         );
     }
 

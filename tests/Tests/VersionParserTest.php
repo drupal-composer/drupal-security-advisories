@@ -149,7 +149,10 @@ class VersionParserTest extends TestCase
                     'terms' => ['Release type' => $releaseType]
                 ]);
             }
-            $project = Project::createFromArray(['project_status' => 'published', 'releases' => $releases]);
+            $project = Project::createFromArray([
+                'project_status' => 'published',
+                'releases' => $releases,
+            ]);
 
             $data[] = [
                 $project,
