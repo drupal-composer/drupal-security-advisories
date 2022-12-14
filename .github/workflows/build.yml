@@ -1,0 +1,57 @@
+name: Build
+on:
+  workflow_dispatch:
+  schedule:
+    # Once a day at 01:12.
+    - cron:  '12 1 * * *'
+env:
+  DSA_BUILD_DIR: /tmp/build
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Setup PHP with composer v2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer:v2
+
+      - name: Setup Git user
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --optimize-autoloader --no-progress
+
+      - name: Build 9.x
+        run: |
+          time php console.php build:composer current
+
+      - name: Build 7.x
+        run: |
+          time php console.php build:composer 7.x
+
+      - uses: actions/checkout@v3
+        with:
+          ref: 9.x
+      - name: Update 9.x branch
+        run: |
+          cp $DSA_BUILD_DIR/current.json composer.json
+          git add composer.json
+          git commit -m 'Automated commit'
+          git push
+
+      - uses: actions/checkout@v3
+        with:
+          ref: 7.x
+      - name: Update 7.x branch
+        run: |
+          cp $DSA_BUILD_DIR/legacy.json composer.json
+          git add composer.json
+          git commit -m 'Automated commit'
+          git push

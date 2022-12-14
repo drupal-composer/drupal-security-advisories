@@ -6,6 +6,7 @@ namespace App\Http;
 
 use App\DTO\Project;
 use App\DTO\Release;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 final class UpdateFetcher extends HttpBase
 {
@@ -13,12 +14,12 @@ final class UpdateFetcher extends HttpBase
     {
         $url = sprintf('https://updates.drupal.org/release-history/%s/%s', $name, $release);
 
-        return $this->request($url);
+        return $this->parseResponse($this->request($url));
     }
 
-    protected function parseRequest(string $content): Project
+    protected function parseResponse(ResponseInterface $response): Project
     {
-        $xml = new \SimpleXMLElement($content);
+        $xml = new \SimpleXMLElement($response->getContent());
         // If there is no valid project data, the XML is invalid.
         if (!isset($xml->short_name)) {
             throw new \UnexpectedValueException('Invalid XML.');

@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Http;
 
 use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 abstract class HttpBase
 {
@@ -13,17 +14,15 @@ abstract class HttpBase
     ) {
     }
 
-    protected function request(string $url) : mixed
+    protected function request(string $url) : ResponseInterface
     {
-        $content = $this->httpClient
+        return $this->httpClient
             ->request('GET', $url, [
                 'headers' => ['Accept' => $this->getContentType()],
-            ])->getContent();
-
-        return $this->parseRequest($content);
+            ]);
     }
 
-    abstract protected function parseRequest(string $content): mixed;
+    abstract protected function parseResponse(ResponseInterface $response): mixed;
 
     abstract protected function getContentType() : string;
 

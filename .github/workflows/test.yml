@@ -4,7 +4,6 @@ on:
     branches:
       - main
 name: Tests
-env:
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -22,17 +21,6 @@ jobs:
         with:
           php-version: '${{ matrix.php-version }}'
           tools: composer:v2
-
-      - name: Get build directory
-        id: build_cache
-        run: echo "::set-output name=dir::build/"
-
-      - name: Cache build directory
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.build_cache.outputs.dir }}
-          key: ${{ runner.os }}-build-${{ hashFiles('**/*.json') }}
-          restore-keys: ${{ runner.os }}-build-
 
       - name: Install Composer dependencies
         run: composer install --prefer-dist --optimize-autoloader --no-progress
