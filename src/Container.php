@@ -19,7 +19,7 @@ final class Container
 
     public static function baseDir(): string
     {
-        return getenv('DSA_BASE_DIR') ?: 'build';
+        return getenv('DSA_BUILD_DIR') ?: 'build';
     }
 
     public static function cacheDir(): string
