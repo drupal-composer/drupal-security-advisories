@@ -27,16 +27,14 @@ final class Release extends Base
 
     public static function createFromArray(array $item, string $name, string $type): self
     {
-        $notBlankConstraint = [
-            new Assert\Type('string'),
-            new Assert\NotBlank(),
-        ];
-
         $collectionConstraint = new Assert\Collection([
             'fields' => [
-                'field_release_version' => $notBlankConstraint,
+                'field_release_version' => [
+                    new Assert\Type('string'),
+                    new Assert\NotBlank(),
+                ],
                 'field_release_project' => new Assert\Collection([
-                    'fields' => ['id' => $notBlankConstraint],
+                    'fields' => ['id' => new Assert\Type('string')],
                     'allowExtraFields' => true
                 ]),
                 'body' => new Assert\Collection([
