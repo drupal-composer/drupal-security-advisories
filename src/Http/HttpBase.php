@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http;
 
@@ -14,7 +14,7 @@ abstract class HttpBase
     ) {
     }
 
-    protected function request(string $url) : ResponseInterface
+    protected function request(string $url): ResponseInterface
     {
         return $this->httpClient
             ->request('GET', $url, [
@@ -24,6 +24,5 @@ abstract class HttpBase
 
     abstract protected function parseResponse(ResponseInterface $response): mixed;
 
-    abstract protected function getContentType() : string;
-
+    abstract protected function getContentType(): string;
 }

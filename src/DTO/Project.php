@@ -4,9 +4,8 @@ namespace App\DTO;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-final class Project extends ReleaseBase
+final class Project extends Base
 {
-
     private function __construct(
         private readonly string $status,
         private readonly array $releases,
@@ -14,7 +13,7 @@ final class Project extends ReleaseBase
     ) {
     }
 
-    public function isUnsupported() : bool
+    public function isUnsupported(): bool
     {
         return $this->status === 'unsupported';
     }
@@ -33,7 +32,7 @@ final class Project extends ReleaseBase
                     new Assert\Type('array'),
                 ]),
                 'releases' => new Assert\All(
-                    new Assert\Type(Release::class),
+                    new Assert\Type(UpdateRelease::class),
                 ),
             ],
             'allowExtraFields' => true,
@@ -47,6 +46,9 @@ final class Project extends ReleaseBase
         );
     }
 
+    /**
+     * @return \App\DTO\UpdateRelease[]
+     */
     public function getReleases(): array
     {
         return $this->releases;
@@ -56,5 +58,4 @@ final class Project extends ReleaseBase
     {
         return $this->supportedBranches;
     }
-
 }

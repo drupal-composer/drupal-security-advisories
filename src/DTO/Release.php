@@ -1,53 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\DTO;
 
-use Symfony\Component\Validator\Constraints\Choice;
-use Symfony\Component\Validator\Constraints\Collection;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Optional;
-use Symfony\Component\Validator\Constraints\Type;
+use App\SemanticVersionTrait;
+use Symfony\Component\Validator\Constraints as Assert;
 
-final class Release extends ReleaseBase
+final class Release extends Base
 {
+    use SemanticVersionTrait;
+
     private function __construct(
+        private readonly string $name,
+        private readonly int|string|null $project,
         private readonly string $version,
-        private readonly ?array $releaseTypes,
+        private readonly string $body,
+        private readonly string $type,
     ) {
-    }
-
-    public static function createFromArray(array $release): self
-    {
-        $notBlankConstraint = [
-            new Type('string'),
-            new NotBlank(),
-        ];
-        $collectionConstraint = new Collection([
-            'fields' => [
-                'version' => $notBlankConstraint,
-                'status' => new Choice(['published', 'unpublished']),
-                'terms' => new Optional([
-                    new Type('array'),
-                    new Collection([
-                        'Release type' => new Optional([
-                            new Type('array'),
-                        ]),
-                    ]),
-                ]),
-            ],
-            'allowExtraFields' => true,
-        ]);
-        self::validate($collectionConstraint, $release);
-
-        return new self(
-            $release['version'],
-            $release['terms']['Release type'] ?? null,
-        );
-    }
-
-    public function getVersion(): string
-    {
-        return $this->version;
     }
 
     public function getSemanticVersion(): string
@@ -55,46 +25,61 @@ final class Release extends ReleaseBase
         return $this->convertLegacyVersionToSemantic($this->version);
     }
 
-    /**
-     * Determines if the release is a security release.
-     *
-     * @return bool true if the release is security release, or false otherwise
-     */
-    public function isSecurityRelease(): bool
+    public static function createFromArray(array $item, string $name, string $type): self
     {
-        return $this->isReleaseType('Security update');
+        $notBlankConstraint = [
+            new Assert\Type('string'),
+            new Assert\NotBlank(),
+        ];
+
+        $collectionConstraint = new Assert\Collection([
+            'fields' => [
+                'field_release_version' => $notBlankConstraint,
+                'field_release_project' => new Assert\Collection([
+                    'fields' => ['id' => $notBlankConstraint],
+                    'allowExtraFields' => true
+                ]),
+                'body' => new Assert\Collection([
+                    'fields' => ['value' => new Assert\Type('string')],
+                    'allowExtraFields' => true,
+                ]),
+            ],
+            'allowExtraFields' => true,
+        ]);
+
+        self::validate($collectionConstraint, $item);
+
+        return new self(
+            $name,
+            $item['field_release_project']['id'],
+            $item['field_release_version'],
+            $item['body']['value'],
+            $type,
+        );
     }
 
-    /**
-     * Determines if the release is unsupported.
-     *
-     * @return bool true if the release is unsupported, or false otherwise
-     */
-    public function isUnsupported(): bool
+    public function getName(): string
     {
-        return $this->isReleaseType('Unsupported');
+        return $this->name;
     }
 
-    /**
-     * Determines if the release is insecure.
-     *
-     * @return bool true if the release is insecure, or false otherwise
-     */
-    public function isInsecure(): bool
+    public function getBody(): string
     {
-        return $this->isReleaseType('Insecure');
+        return $this->body;
     }
 
-    /**
-     * Determines if the release is matches a type.
-     *
-     * @param string $type The release type
-     *
-     * @return bool true if the release matches the type, or false otherwise
-     */
-    private function isReleaseType(string $type): bool
+    public function getType(): string
     {
-        return $this->releaseTypes && in_array($type, $this->releaseTypes, true);
+        return $this->type;
     }
 
+    public function getVersion(): string
+    {
+        return $this->version;
+    }
+
+    public function getProject(): int|string|null
+    {
+        return $this->project;
+    }
 }

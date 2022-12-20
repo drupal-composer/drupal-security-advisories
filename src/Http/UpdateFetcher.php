@@ -1,11 +1,11 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http;
 
 use App\DTO\Project;
-use App\DTO\Release;
+use App\DTO\UpdateRelease;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
 final class UpdateFetcher extends HttpBase
@@ -42,7 +42,7 @@ final class UpdateFetcher extends HttpBase
                         $release['terms'][(string) $term->name][] = (string) $term->value;
                     }
                 }
-                $releases[] = Release::createFromArray($release);
+                $releases[] = UpdateRelease::createFromArray($release);
             }
         }
         return Project::createFromArray([
@@ -56,5 +56,4 @@ final class UpdateFetcher extends HttpBase
     {
         return 'text/html';
     }
-
 }

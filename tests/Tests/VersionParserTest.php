@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace App\Tests;
 
 use App\DTO\Project;
-use App\DTO\Release;
+use App\DTO\UpdateRelease;
 use App\ConstraintParser;
 use Composer\Semver\Semver;
 use PHPUnit\Framework\TestCase;
@@ -18,24 +18,43 @@ class VersionParserTest extends TestCase
      */
     public function testVersionConstraint(Project $project, string $expected, array $insecure, array $secure): void
     {
-        $parser = new ConstraintParser();
-        $actual = $parser->format($project);
+        $actual = ConstraintParser::format($project);
         $this->assertEquals($expected, $actual);
 
         // Assert that given insecure versions are matched against the constraint.
         foreach ($insecure as $version) {
-            $this->assertTrue(Semver::satisfies($version, $expected));
+            $this->assertTrue(
+                Semver::satisfies($version, $expected),
+                sprintf('%s is insecure', $version),
+            );
         }
 
         // Assert that secure versions are not matches against the constraint.
         foreach ($secure as $version) {
-            $this->assertFalse(Semver::satisfies($version, $expected));
+            $this->assertFalse(
+                Semver::satisfies($version, $expected),
+                sprintf('%s is secure.', $version),
+            );
         }
     }
 
     public function versionData() : array
     {
         $items = [
+            // Test project with security updates in 2.x branch and
+            // no insecure releases in 1.x branch.
+            [
+                'data' => [
+                    '2.0.1' => ['Security update'],
+                    '2.0.0' => ['Insecure'],
+                    '8.x-1.2' => ['Bug fixes'],
+                    '8.x-1.1' => ['Bug fixes'],
+                    '8.x-1.0' => ['Bug fixes'],
+                ],
+                'expected' => '>1.2.0,<2.0.1',
+                'insecure' => ['2.0.0'],
+                'secure' => ['2.0.1'],
+            ],
             [
                 'data' => [
                     '7.x-2.9' => ['Bug fixes'],
@@ -47,9 +66,9 @@ class VersionParserTest extends TestCase
                     '7.x-1.7' => ['Insecure'],
                     '7.x-1.6' => ['Insecure'],
                 ],
-                'expected' => '>=1.6.0,<1.8.0|>=2.6.0,<2.8.0',
+                'expected' => '<1.8.0|>1.9.0,<2.8.0',
                 'insecure' => ['1.6.0', '1.7.0', '2.6.0-rc1', '2.7.0-alpha1'],
-                'secure' => ['2.9', '2.8-beta1', '2.8-rc1', '1.5', '1.9'],
+                'secure' => ['2.9', '2.8-beta1', '2.8-rc1', '1.9'],
             ],
             [
                 'data' => [
@@ -65,32 +84,9 @@ class VersionParserTest extends TestCase
                     '11.7.0' => ['Insecure'],
                     '10.0.0' => ['Insecure'],
                 ],
-                'expected' => '>=10.0.0,<11.7.2|>=11.9.2,<11.9.4',
+                'expected' => '<11.7.2|>11.7.3,<11.8.0|>11.8.1,<11.9.4',
                 'insecure' => ['10.0.0', '10.0.1', '11.7.1-beta1'],
-                'secure' => ['9.9.9', '11.7.2', '11.9.1', '11.9.5'],
-            ],
-            // Test project with security updates in 2.x branch and
-            // no insecure releases in 1.x branch.
-            [
-                'data' => [
-                    '2.0.1' => ['Security update'],
-                    '2.0.0' => ['Insecure'],
-                    '8.x-1.2' => ['Bug fixes'],
-                    '8.x-1.1' => ['Bug fixes'],
-                    '8.x-1.0' => ['Bug fixes'],
-                ],
-                'expected' => '>=2.0.0,<2.0.1',
-                'insecure' => ['2.0.0'],
-                'secure' => ['2.0.1'],
-            ],
-            [
-                'data' => [
-                    '8.x-1.26' => ['Security update'],
-                    '8.x-1.0' => ['Insecure'],
-                ],
-                'expected' => '>=1.0.0,<1.26.0',
-                'insecure' => ['1.0.0', '1.25.0', '1.25-alpha1'],
-                'secure' => ['1.26'],
+                'secure' => ['11.7.2', '11.9.5'],
             ],
             // Test project with no security release (abandoned project).
             [
@@ -98,9 +94,9 @@ class VersionParserTest extends TestCase
                     '8.x-1.26' => ['Insecure'],
                     '8.x-1.25' => ['Insecure'],
                 ],
-                'expected' => '*',
+                'expected' => '<=1.26.0',
                 'insecure' => ['1.0.0'],
-                'secure' => [],
+                'secure' => ['1.27.0'],
             ],
             // Test project with no stable release.
             [
@@ -110,9 +106,9 @@ class VersionParserTest extends TestCase
                     '8.x-1.11-alpha4' => ['Insecure'],
                     '8.x-1.11-alpha3' => ['Insecure'],
                 ],
-                'expected' => '>=1.11.0-alpha3,<1.11.0-alpha5',
+                'expected' => '<1.11.0-alpha5',
                 'insecure' => ['1.11.alpha4'],
-                'secure' => ['1.11-alpha5', '1.11-alpha2', '1.12'],
+                'secure' => ['1.11-alpha5', '1.12'],
             ],
             // Test project with no-stable lower bound.
             [
@@ -122,9 +118,9 @@ class VersionParserTest extends TestCase
                     '8.x-1.11-alpha4' => ['Insecure'],
                     '8.x-1.11-alpha3' => ['Insecure'],
                 ],
-                'expected' => '>=1.11.0-alpha3,<1.12.0',
+                'expected' => '<1.12.0',
                 'insecure' => ['1.11-alpha4', '1.11', '1.11-rc1', '1.11-beta1'],
-                'secure' => ['1.11-alpha2', '1.12']
+                'secure' => ['1.12']
             ],
             // Test project with no-stable upper bound.
             [
@@ -132,9 +128,34 @@ class VersionParserTest extends TestCase
                     '8.x-1.13-alpha1' => ['Bug fixes'],
                     '8.x-1.11' => ['Insecure'],
                 ],
-                'expected' => '>=1.11.0,<1.13.0-alpha1',
+                'expected' => '<1.13.0-alpha1',
                 'insecure' => ['1.11-alpha4', '1.11', '1.12-rc1', '1.11-beta1'],
-                'secure' => ['1.13-alpha1', '1.13', '1.13-alpha2', '1.10-alpha1'],
+                'secure' => ['1.13-alpha1', '1.13', '1.13-alpha2'],
+            ],
+            // Test projects with security release where previous releases were
+            // not marked as insecure.
+            [
+                'data' => [
+                    '2.0.1' => ['Security update'],
+                    '2.0.0' => ['Bug fixes'],
+                    '2.0.0-alpha1' => ['Bug fixes'],
+                ],
+                'expected' => '<2.0.1',
+                'insecure' => ['2.0.0', '2.0.0-alpha1', '1.9.0'],
+                'secure' => ['2.0.1', '2.1.0'],
+            ],
+            // Test project with back to back security updates with no
+            // releases marked as insecure.
+            [
+                'data' => [
+                    '3.0.2' => ['Security update'],
+                    '3.0.1' => ['Security update'],
+                    '3.0.0' => ['Bug fixes'],
+                    '3.0.0-alpha1' => ['Bug fixes'],
+                ],
+                'expected' => '<3.0.2',
+                'insecure' => ['3.0.0', '3.0.0-alpha1', '2.9.0'],
+                'secure' => ['3.0.2', '3.1.0'],
             ],
         ];
 
@@ -143,7 +164,7 @@ class VersionParserTest extends TestCase
             $releases = [];
 
             foreach ($item['data'] as $version => $releaseType) {
-                $releases[] = Release::createFromArray([
+                $releases[] = UpdateRelease::createFromArray([
                     'version' => $version,
                     'status' => 'published',
                     'terms' => ['Release type' => $releaseType]
