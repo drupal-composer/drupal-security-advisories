@@ -6,7 +6,6 @@ use App\Commands\BuildComposerJson;
 use App\Http\DrupalApi;
 use App\Http\UpdateFetcher;
 use App\ReleaseManager;
-use App\SecurityAdvisoryManager;
 use App\Container;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\Marshaller\DefaultMarshaller;
@@ -35,10 +34,6 @@ $container
         // https://github.com/symfony/symfony/issues/36858. The whole dataset is cached
         // separately by release manager service.
         $container->get('http_client'),
-    ))
-    ->add('security_advisory_manager', new SecurityAdvisoryManager(
-        $container->get('drupal_api'),
-        $container->get('cache'),
     ))
     ->add('update_fetcher', new UpdateFetcher(
         $container->get('caching_http_client'),
