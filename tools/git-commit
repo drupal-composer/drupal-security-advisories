@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ $(git status --porcelain) ]]; then
+  git add composer.json
+  git commit -m 'Automated commit'
+  git push
+fi
