@@ -17,6 +17,7 @@
     "symfony/yaml": "^6.2"
   },
   "require-dev": {
-    "symfony/test-pack": "^1.0"
+    "symfony/test-pack": "^1.0",
+    "friendsofphp/php-cs-fixer": "^3.13"
   }
 }
