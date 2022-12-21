@@ -40,6 +40,7 @@ final class ReleaseManager
         $items = $this->cache->get('release-' . $category, function () use ($category) {
             $releases = [];
 
+            // Fetch all releases marked as 'insecure' (tid = 188131) or 'Security update' (tid = 100).
             foreach ([188131 => 'insecure', 100 => 'security_update'] as $tid => $type) {
                 $filters = [
                     'type' => 'project_release',
@@ -50,7 +51,6 @@ final class ReleaseManager
                 ];
                 /** @var \App\DTO\Release[] $releases */
                 $releases[$tid] = $this->drupalApiFetcher
-                    // Fetch all releases marked as 'insecure' (tid = 188131) or 'Security update' (tid = 100).
                     ->filterList('node', $filters, function (array $item) use ($type) {
                         // Parse the project name from release URL. The URL should be something like
                         // https://drupal.org/project/drupal/releases/9.4.7.

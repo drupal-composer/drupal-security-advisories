@@ -29,12 +29,10 @@ jobs:
         run: composer install --prefer-dist --optimize-autoloader --no-progress
 
       - name: Build 9.x
-        run: |
-          time php console.php build:composer current
+        run: time php console.php build:composer current
 
       - name: Build 7.x
-        run: |
-          time php console.php build:composer 7.x
+        run: time php console.php build:composer 7.x
 
       - uses: actions/checkout@v3
         with:
@@ -42,9 +40,7 @@ jobs:
       - name: Update 9.x branch
         run: |
           cp $DSA_BUILD_DIR/current.json composer.json
-          git add composer.json
-          git commit -m 'Automated commit'
-          git push
+          ./tools/git-commit
 
       - uses: actions/checkout@v3
         with:
@@ -52,6 +48,4 @@ jobs:
       - name: Update 7.x branch
         run: |
           cp $DSA_BUILD_DIR/legacy.json composer.json
-          git add composer.json
-          git commit -m 'Automated commit'
-          git push
+          ./tools/git-commit
