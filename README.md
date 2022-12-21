@@ -47,5 +47,5 @@ This packages gets information form Drupal.org APIs.
 
 ## Building
 
-Drupal 9+: `php console.php build:composer current`
-Drupal 7: `php console.php build:composer 7.x`
+- Drupal 9+: `php console.php build:composer current`
+- Drupal 7: `php console.php build:composer 7.x`
