@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 1
+          path: 'build'
 
       - name: Setup PHP with composer v2
         uses: shivammathur/setup-php@v2
@@ -40,7 +41,7 @@ jobs:
       - name: Update 9.x branch
         run: |
           cp $DSA_BUILD_DIR/current.json composer.json
-          ./tools/git-commit
+          ./build/tools/git-commit
 
       - uses: actions/checkout@v3
         with:
@@ -48,4 +49,4 @@ jobs:
       - name: Update 7.x branch
         run: |
           cp $DSA_BUILD_DIR/legacy.json composer.json
-          ./tools/git-commit
+          ./build/tools/git-commit
