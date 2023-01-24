@@ -1,14 +1,14 @@
 <?php
 
-use Doctrine\Common\Cache\FilesystemCache;
 use DrupalComposer\DrupalSecurityAdvisories\Projects;
 use DrupalComposer\DrupalSecurityAdvisories\UrlHelper;
 use DrupalComposer\DrupalSecurityAdvisories\VersionParser;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use Kevinrob\GuzzleCache\CacheMiddleware;
-use Kevinrob\GuzzleCache\Storage\DoctrineCacheStorage;
+use Kevinrob\GuzzleCache\Storage\FlysystemStorage;
 use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
+use League\Flysystem\Adapter\Local;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -20,8 +20,8 @@ $stack = HandlerStack::create();
 $stack->push(
   new CacheMiddleware(
     new GreedyCacheStrategy(
-      new DoctrineCacheStorage(
-        new FilesystemCache(__DIR__ . '/cache')
+      new FlysystemStorage(
+        new Local(__DIR__ . '/cache')
       ),
       3600
     )
@@ -45,7 +45,8 @@ function fetchAllData($url, Client $client) {
     $results = array_merge($results, $data->list);
 
     if (isset($data->next)) {
-      $data = json_decode($client->get(UrlHelper::prepareUrl($data->next))->getBody());
+      $url = UrlHelper::prepareUrl($data->next);
+      $data = json_decode($client->get($url)->getBody());
     }
     else {
       $data = NULL;
@@ -55,7 +56,7 @@ function fetchAllData($url, Client $client) {
 }
 
 // Security releases
-$results = fetchAllData('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=100&field_release_build_type=static', $client);
+$results = fetchAllData('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=100&field_release_build_type=static&field_release_category[value][]=legacy&field_release_category[value][]=current', $client);
 foreach ($results as $result) {
   // Skip releases with incomplete data.
   if (!property_exists($result, 'field_release_project')) {
@@ -90,7 +91,7 @@ foreach ($results as $result) {
 }
 
 // Insecure releases
-$results = fetchAllData('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=188131&field_release_build_type=static', $client);
+$results = fetchAllData('https://www.drupal.org/api-d7/node.json?type=project_release&taxonomy_vocabulary_7=188131&field_release_build_type=static&field_release_category[value][]=legacy&field_release_category[value][]=current', $client);
 foreach ($results as $result) {
   // Skip releases with incomplete data.
   if (!property_exists($result, 'field_release_project')) {
@@ -160,19 +161,10 @@ foreach ($conflict as $core_compat => $packages) {
  * @return int
  */
 function getCoreCompat($result) {
-  switch ($result->field_release_category) {
-    case 'obsolete':
-      $core_compat = -1;
-      break;
-    case 'legacy':
-      $core_compat = 7;
-      break;
-    case 'current':
-      // Drupal's module API goes no higher than 8. Drupal 9 core advisories are published in this project's 8.x branch.
-      $core_compat = 8;
-      break;
-    default:
-      throw new InvalidArgumentException('Unrecognized field_release_category.');
-  }
-  return $core_compat;
+  return match ($result->field_release_category) {
+    'legacy' => 7,
+    // Drupal's module API goes no higher than 8. Drupal 9 core advisories are published in this project's 8.x branch.
+    'current' => 8,
+    default => -1
+  };
 }

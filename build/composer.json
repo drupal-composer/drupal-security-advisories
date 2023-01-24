@@ -7,12 +7,12 @@
     }
   ],
   "require": {
-    "php": "^8.0",
-    "composer/composer": "^2.4.1",
-    "kevinrob/guzzle-cache-middleware": "^3.5",
+    "php": "^8.1",
+    "ext-json": "*",
+    "composer/composer": "^2.5.1",
+    "kevinrob/guzzle-cache-middleware": "^4.0.2",
     "guzzlehttp/guzzle": "^6.5.8",
-    "doctrine/cache": "^1.13",
-    "ext-json": "*"
+    "league/flysystem": "^1.1.10"
   },
   "autoload": {
     "psr-4": {
