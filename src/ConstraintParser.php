@@ -121,6 +121,27 @@ final class ConstraintParser
         return '0.0.0';
     }
 
+    private static function compactConstraints(array $constraints, Project $project): array
+    {
+        // Filter out constraints without previous insecure releases. For example: given
+        // the following constraints '<1.0.0|>=2.0.0,<2.0.1', the '<1.0.0' is redundant
+        // since there's no security releases before the 1.0.0 release.
+        return array_filter($constraints, function (ConstraintInterface $constraint) use ($project) {
+            if (!$constraint instanceof Constraint) {
+                return true;
+            }
+            foreach (array_reverse($project->getReleases()) as $release) {
+                if ($release->getSemanticVersion() === $constraint->getVersion()) {
+                    break;
+                }
+                if ($release->isInsecure() || $release->isSecurityRelease()) {
+                    return true;
+                }
+            }
+            return false;
+        });
+    }
+
     public static function createConstraints(Project $project): array
     {
         // Mark unsupported projects as insecure.
@@ -182,6 +203,8 @@ final class ConstraintParser
         // Use the oldest supported version as baseline lower bound.
         $constraints[] = new Constraint('<', reset($supportedBranches));
 
-        return array_reverse($constraints);
+        return array_reverse(
+            self::compactConstraints($constraints, $project)
+        );
     }
 }

@@ -56,6 +56,11 @@ final class BuildComposerJson extends Command
     ): array {
         $conflicts = [];
 
+        /*$project = $this->releaseManager->getUpdateData('opigno_group_manager', $releaseCategory);
+        $constraint = ConstraintParser::format($project);
+
+        return [];*/
+
         foreach ($this->releaseManager->getReleases($releaseCategory) as $name => $versions) {
             $namespacedName = sprintf('drupal/%s', $name);
 
