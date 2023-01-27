@@ -75,7 +75,7 @@ final class ConstraintParser
     /**
      * @return UpdateRelease[]
      */
-    private static function filterReleases(Project $project): array
+    private static function filterReleases(Project $project, bool $supportedOnly = true): array
     {
         $releases = [];
 
@@ -84,7 +84,7 @@ final class ConstraintParser
                 continue;
             }
 
-            if (!self::isSupportedBranch($project, $release->getVersion())) {
+            if ($supportedOnly && !self::isSupportedBranch($project, $release->getVersion())) {
                 continue;
             }
             $releases[$version] = $release;
@@ -130,7 +130,7 @@ final class ConstraintParser
             if (!$constraint instanceof Constraint) {
                 return true;
             }
-            foreach (array_reverse($project->getReleases()) as $release) {
+            foreach (array_reverse(self::filterReleases($project, false)) as $release) {
                 if ($release->getSemanticVersion() === $constraint->getVersion()) {
                     break;
                 }
