@@ -138,6 +138,7 @@ final class ConstraintParser
                     return true;
                 }
             }
+
             return false;
         });
     }
