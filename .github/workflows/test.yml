@@ -25,5 +25,8 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --optimize-autoloader --no-progress
 
+      - name: Check coding standards
+        run: vendor/bin/php-cs-fixer fix --rules=@Symfony src --dry-run
+
       - name: Run tests
         run: vendor/bin/phpunit tests/

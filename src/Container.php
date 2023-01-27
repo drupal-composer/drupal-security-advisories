@@ -4,11 +4,12 @@ namespace App;
 
 final class Container
 {
-    protected array $service = [];
+    private array $service = [];
 
     public function add(string $name, mixed $object): self
     {
         $this->service[$name] = $object;
+
         return $this;
     }
 

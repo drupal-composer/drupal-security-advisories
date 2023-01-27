@@ -18,6 +18,7 @@ final class DrupalApi extends HttpBase
     private function getListUrl(string $type, array $query): string
     {
         $query = http_build_query($query);
+
         return sprintf('https://www.drupal.org/api-d7/%s.json?%s', $type, $query);
     }
 
@@ -25,6 +26,7 @@ final class DrupalApi extends HttpBase
     {
         $content = $this
             ->request(sprintf('https://www.drupal.org/api-d7/%s/%s', $type, $id));
+
         return $this->parseResponse($content);
     }
 
@@ -36,7 +38,7 @@ final class DrupalApi extends HttpBase
         $totalPages = $this
             ->getPagerValue($this->parseResponse($content)['last']);
 
-        for ($page = 0; $page <= $totalPages; $page++) {
+        for ($page = 0; $page <= $totalPages; ++$page) {
             $responses[] = $this->request($this->getListUrl($type, ['page' => $page] + $filters));
         }
 
@@ -50,6 +52,7 @@ final class DrupalApi extends HttpBase
                 $releases[] = $value;
             }
         }
+
         return $releases;
     }
 

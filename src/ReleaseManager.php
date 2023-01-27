@@ -25,9 +25,10 @@ final class ReleaseManager
     {
         [, $base, $name] = explode('/', parse_url($url, PHP_URL_PATH));
 
-        if ($base !== 'project') {
+        if ('project' !== $base) {
             throw new \InvalidArgumentException('Failed to parse project name.');
         }
+
         return $name;
     }
 
@@ -37,7 +38,7 @@ final class ReleaseManager
             return $this->releases;
         }
 
-        $items = $this->cache->get('release-' . $category, function () use ($category) {
+        $items = $this->cache->get('release-'.$category, function () use ($category) {
             $releases = [];
 
             // Fetch all releases marked as 'insecure' (tid = 188131) or 'Security update' (tid = 100).
@@ -49,7 +50,7 @@ final class ReleaseManager
                     'taxonomy_vocabulary_7' => $tid,
                     'status' => 1,
                 ];
-                /** @var \App\DTO\Release[] $releases */
+                /* @var \App\DTO\Release[] $releases */
                 $releases[$tid] = $this->drupalApiFetcher
                     ->filterList('node', $filters, function (array $item) use ($type) {
                         // Parse the project name from release URL. The URL should be something like
@@ -63,14 +64,16 @@ final class ReleaseManager
                         return Release::createFromArray($item, $name, $type);
                     });
             }
+
             return $releases;
         });
 
         foreach ($items as $releases) {
-            foreach ($releases as $category) {
-                $this->releases[$category->getName()][$category->getVersion()] = $category;
+            foreach ($releases as $release) {
+                $this->releases[$release->getName()][$release->getVersion()] = $release;
             }
         }
+
         return $this->releases;
     }
 

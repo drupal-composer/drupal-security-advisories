@@ -20,9 +20,7 @@ abstract class Base
                 $messages[] = 'Field '.$violation->getPropertyPath().': '.$violation->getMessage();
             }
 
-            throw new \UnexpectedValueException(
-                sprintf("Malformed data: %s\nData given:\n %s", implode(",\n", $messages), print_r($data, true))
-            );
+            throw new \UnexpectedValueException(sprintf("Malformed data: %s\nData given:\n %s", implode(",\n", $messages), print_r($data, true)));
         }
     }
 }

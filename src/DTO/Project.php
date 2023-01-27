@@ -2,10 +2,13 @@
 
 namespace App\DTO;
 
+use App\SemanticVersionTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
 final class Project extends Base
 {
+    use SemanticVersionTrait;
+
     private function __construct(
         private readonly string $status,
         private readonly array $releases,
@@ -15,12 +18,12 @@ final class Project extends Base
 
     public function isUnsupported(): bool
     {
-        return $this->status === 'unsupported';
+        return 'unsupported' === $this->status;
     }
 
     public function isPublished(): bool
     {
-        return $this->status === 'published';
+        return 'published' === $this->status;
     }
 
     public static function createFromArray(array $data): self
@@ -39,10 +42,12 @@ final class Project extends Base
         ]);
         self::validate($constraint, $data);
 
+        $data['supported_branches'] = array_filter($data['supported_branches']);
+
         return new self(
             $data['project_status'],
             $data['releases'],
-            $data['supported_branches'] ?? [],
+            $data['supported_branches'],
         );
     }
 
@@ -57,5 +62,12 @@ final class Project extends Base
     public function getSupportedBranches(): array
     {
         return $this->supportedBranches;
+    }
+
+    public function getNormalizedSupportedBranches(): array
+    {
+        return array_map(function (string $branch) {
+            return $this->normalizeSupportedBranch($branch);
+        }, $this->supportedBranches);
     }
 }

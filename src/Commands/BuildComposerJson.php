@@ -6,14 +6,49 @@ namespace App\Commands;
 
 use App\ConstraintParser;
 use App\Container;
+use App\ReleaseManager;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Filesystem\Filesystem;
 
 #[AsCommand(name: 'build:composer')]
-final class BuildComposerJson extends BuildBase
+final class BuildComposerJson extends Command
 {
+    public function __construct(
+        protected readonly Filesystem $fileSystem,
+        protected readonly ReleaseManager $releaseManager,
+    ) {
+        parent::__construct();
+    }
+
+    protected function configure(): void
+    {
+        $this
+            ->addArgument(
+                'release',
+                description: 'The release category. Enter "legacy" for Drupal 7 and "current" for Drupal 8+.',
+                default: 'current'
+            );
+    }
+
+    protected function getInputSettings(InputInterface $input): array
+    {
+        return match ($input->getArgument('release')) {
+            '7.x', 'legacy' => [
+                'updateEndpoint' => '7.x',
+                'release' => 'legacy',
+                'file' => Container::baseDir().'/legacy.json',
+            ],
+            default => [
+                'updateEndpoint' => 'current',
+                'release' => 'current',
+                'file' => Container::baseDir().'/current.json',
+            ],
+        };
+    }
+
     private function generateConstraints(
         string $releaseCategory,
         string $updateEndpoint,
@@ -33,11 +68,10 @@ final class BuildComposerJson extends BuildBase
                 ->getUpdateData($name, $updateEndpoint);
 
             if (!$constraint = ConstraintParser::format($project)) {
-                $output->write('<comment>No valid constraints found!</comment>');
-
+                $output->write('<comment>No valid constraints found!</comment>'.PHP_EOL);
                 continue;
             }
-            $output->write('<info>Generated constraint:</info> ' . $constraint . PHP_EOL);
+            $output->write('<info>Generated constraint:</info> '.$constraint.PHP_EOL);
 
             $conflicts[$namespacedName] = $constraint;
         }
@@ -67,7 +101,7 @@ final class BuildComposerJson extends BuildBase
             'conflict' => $constraints,
         ];
 
-        $content = json_encode($composer, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n";
+        $content = json_encode($composer, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)."\n";
 
         $this->fileSystem->dumpFile($file, $content);
 

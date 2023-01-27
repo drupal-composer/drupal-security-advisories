@@ -30,7 +30,7 @@ class SecurityAdvisory extends Base
                 'created' => $notBlankConstraint,
                 'field_project' => new Assert\Collection([
                     'fields' => ['id' => $notBlankConstraint],
-                    'allowExtraFields' => true
+                    'allowExtraFields' => true,
                 ]),
             ],
             'allowExtraFields' => true,

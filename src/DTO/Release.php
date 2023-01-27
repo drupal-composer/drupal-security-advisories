@@ -35,7 +35,7 @@ final class Release extends Base
                 ],
                 'field_release_project' => new Assert\Collection([
                     'fields' => ['id' => new Assert\Type('string')],
-                    'allowExtraFields' => true
+                    'allowExtraFields' => true,
                 ]),
                 'body' => new Assert\Collection([
                     'fields' => ['value' => new Assert\Type('string')],

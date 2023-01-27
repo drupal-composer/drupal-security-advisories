@@ -6,7 +6,14 @@ namespace App;
 
 trait SemanticVersionTrait
 {
-    protected function convertLegacyVersionToSemantic(string $version): string
+    protected static function normalizeSupportedBranch(string $branch): string
+    {
+        $branch = sprintf('%s.0', rtrim($branch, '.'));
+
+        return static::convertLegacyVersionToSemantic($branch);
+    }
+
+    protected static function convertLegacyVersionToSemantic(string $version): string
     {
         $prefix = substr($version, 0, 4);
 
@@ -20,6 +27,7 @@ trait SemanticVersionTrait
         if (2 === count($parts)) {
             return sprintf('%s.0-%s', $parts[0], $parts[1]);
         }
+
         return sprintf('%s.0', $parts[0]);
     }
 }

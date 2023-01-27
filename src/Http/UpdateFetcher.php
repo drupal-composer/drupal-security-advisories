@@ -45,9 +45,26 @@ final class UpdateFetcher extends HttpBase
                 $releases[] = UpdateRelease::createFromArray($release);
             }
         }
+
+        $supportedBranches = explode(',', (string) $xml->supported_branches) ?? [];
+        $supportedBranches = array_filter($supportedBranches);
+
+        // Convert Drupal 7 type 'supported_majors' field to D8+ compatible 'supported_branches'.
+        if (!$supportedBranches && $xml->supported_majors) {
+            $supportedMajors = explode(',', (string) $xml->supported_majors);
+
+            if ('drupal' === (string) $xml->short_name) {
+                $supportedBranches[] = '7.';
+            } else {
+                foreach ($supportedMajors as $version) {
+                    $supportedBranches[] = sprintf('7.x-%s.', $version);
+                }
+            }
+        }
+
         return Project::createFromArray([
             'project_status' => (string) $xml->project_status,
-            'supported_branches' => explode(',', (string) $xml->supported_branches ?? ''),
+            'supported_branches' => $supportedBranches,
             'releases' => $releases,
         ]);
     }
