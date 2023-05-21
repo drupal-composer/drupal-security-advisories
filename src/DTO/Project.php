@@ -44,6 +44,10 @@ final class Project extends Base
 
         $data['supported_branches'] = array_filter($data['supported_branches']);
 
+        usort($data['releases'], function (UpdateRelease $r1, UpdateRelease $r2) {
+            return version_compare($r1->getSemanticVersion(), $r2->getSemanticVersion());
+        });
+
         return new self(
             $data['project_status'],
             $data['releases'],
