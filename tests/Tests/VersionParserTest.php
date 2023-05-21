@@ -63,7 +63,7 @@ class VersionParserTest extends TestCase
                     '8.x-1.0' => ['Bug fixes'],
                 ],
                 'supported_branches' => '8.x-1.,2.0.',
-                'expected' => '<1.0|>=2.0.0,<2.0.1',
+                'expected' => '<1.0.0|>=2.0.0,<2.0.1',
                 'insecure' => ['2.0.0'],
                 'secure' => ['2.0.1'],
             ],
