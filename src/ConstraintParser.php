@@ -107,13 +107,7 @@ final class ConstraintParser
     private static function getBranchFromVersion(array $supportedBranches, string $version): string
     {
         foreach ($supportedBranches as $branch) {
-            if (Semver::satisfies($version, '~'.$branch)) {
-                return $branch;
-            }
-        }
-
-        foreach ($supportedBranches as $branch) {
-            if (Semver::satisfies($version, '^'.$branch)) {
+            if (Semver::satisfies($version, '~'.$branch) || Semver::satisfies($version, '^'.$branch)) {
                 return $branch;
             }
         }
