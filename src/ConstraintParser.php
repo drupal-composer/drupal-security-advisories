@@ -106,8 +106,20 @@ final class ConstraintParser
 
     private static function getBranchFromVersion(array $supportedBranches, string $version): string
     {
+        // Check given version against all tilde-version-range first.
+        // This should handle projects with multiple supported minor versions, like
+        // 9.4.0, 9.5.0, 10.0.0 and 10.1.0.
         foreach ($supportedBranches as $branch) {
-            if (Semver::satisfies($version, '~'.$branch) || Semver::satisfies($version, '^'.$branch)) {
+            if (Semver::satisfies($version, '~'.$branch)) {
+                return $branch;
+            }
+        }
+
+        // Fallback to caret-version-range in case no better match was found earlier.
+        // This should handle projects that have multiple supported major versions, like
+        // 2.0.0 and 3.0.0 etc.
+        foreach ($supportedBranches as $branch) {
+            if (Semver::satisfies($version, '^'.$branch)) {
                 return $branch;
             }
         }
