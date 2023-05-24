@@ -106,7 +106,7 @@ final class ConstraintParser
 
     private static function getBranchFromVersion(array $supportedBranches, string $version): string
     {
-        // Check given version against all tilde-version-range first.
+        // Match given version against tilde-version-range branches first.
         // This should handle projects with multiple supported minor versions, like
         // 9.4.0, 9.5.0, 10.0.0 and 10.1.0.
         foreach ($supportedBranches as $branch) {
