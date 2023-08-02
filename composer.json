@@ -108,6 +108,7 @@
         "drupal/mail_login": "2.0|2.1|2.2|2.3|2.4|>=2,<2.5",
         "drupal/mailchimp": "2.0.0|2.0.0-rc1|2.0.1|2.0.2|2.1.0-rc1|2.2.0|2.2.0-rc1|2.2.1|>=2.2,<2.2.2",
         "drupal/mapbox_ui": ">=1,<1.2",
+        "drupal/matomo": "1.3|1.4|1.5|1.6|1.7|1.8|1.9|1.10|1.11|1.12|1.13|1.14|1.15|1.16|1.17|1.18|1.19|1.20|1.21",
         "drupal/media_entity_flickr": "1.0|1.1|4.0-alpha1|4.0-alpha2|4.0-alpha3|4.0-alpha4",
         "drupal/media_library_block": "1.0.1|1.0.3|>=1.0,<1.0.4",
         "drupal/media_library_form_element": "2.0.0|2.0.0-alpha1|2.0.1|2.0.3|2.0.4|2.0.5|>=2.0,<2.0.6",
