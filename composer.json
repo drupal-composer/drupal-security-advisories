@@ -217,6 +217,7 @@
         "drupal/wingsuit_companion": "1.0|1.0-beta1|1.0-beta2|1.0-beta3|1.0-beta4|2.0-beta2|2.0-beta3|2.0-beta4|2.0-beta5|2.0-beta6|2.0-beta7|>=1,<1.1|>=2,<2.0-beta8",
         "drupal/workbench_moderation": "1.0|1.0-alpha1|1.0-alpha2|1.0-beta1|1.0-beta2|1.1|1.2|1.3|>=1,<1.4",
         "drupal/xmlsitemap": "1.0-alpha1|>=1,<1.0-alpha2",
-        "drupal/xray_audit": "1.0.0|1.0.0-alpha1|1.0.0-rc1|1.1.0|>=1.1,<1.1.1"
+        "drupal/xray_audit": "1.0.0|1.0.0-alpha1|1.0.0-rc1|1.1.0|>=1.1,<1.1.1",
+        "drupal/xsendfile": "1.0|1.1|>=1,<1.2"
     }
 }
