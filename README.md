@@ -4,6 +4,10 @@ This package ensures that your application doesn't have installed dependencies w
 
 [![Circle CI](https://circleci.com/gh/drupal-composer/drupal-security-advisories/tree/main.svg?style=svg)](https://circleci.com/gh/drupal-composer/drupal-security-advisories/tree/main)
 
+# Deprecated
+
+The project has been discontinued. The functions have been replaced by ‘composer audit’. Read the [related drupal.org issue](https://www.drupal.org/project/project_composer/issues/3301876) for more information.
+
 ## Installation
 
 ### Drupal 9+ ([composer.json](https://github.com/drupal-composer/drupal-security-advisories/blob/9.x/composer.json))
